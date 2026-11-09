@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Promissa: a public ledger of government AI commitments</title>
+<title>PROMISSA · What governments promised on AI, and what we can show was delivered</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Crect width=%2716%27 height=%2716%27 fill=%27%23F3EFE6%27/%3E%3Ccircle cx=%278%27 cy=%278%27 r=%275%27 fill=%27%231F3F8F%27/%3E%3C/svg%3E">
 <meta name="description" content="A sourced public ledger of AI commitments made by governments, set against evidence of what was delivered.">
 <style>
@@ -26,30 +26,35 @@ html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bone);color:var(--ink);font-family:var(--serif);font-size:19px;line-height:1.5}
 a{color:var(--lapis);text-underline-offset:2px}
 a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--lapis);outline-offset:2px}
-.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.wrap{max-width:none;margin:0 auto;padding:0 18px}
 .caps{font-family:var(--caps);font-weight:600;letter-spacing:.08em;text-transform:uppercase}
 .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
 .muted{color:var(--ink2)}
 .small{font-size:15px}
 
 /* header */
-header.top{border-bottom:1px solid var(--hair);padding:44px 0 22px}
-h1{font-family:var(--caps);font-weight:600;letter-spacing:.22em;font-size:clamp(30px,6vw,54px);margin:0;line-height:1.1}
-.subtitle{font-size:clamp(19px,2.6vw,25px);margin:10px 0 0;max-width:46ch;color:var(--ink)}
-.meta{margin:18px 0 0;font-family:var(--mono);font-size:13px;color:var(--ink2);line-height:1.7}
-nav.jump{margin-top:16px;display:flex;flex-wrap:wrap;gap:6px 22px;font-family:var(--caps);font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+header.top{border-bottom:1px solid var(--hair);padding:20px 0 8px}
+.hdr{display:flex;align-items:baseline;gap:6px 22px;flex-wrap:wrap}
+h1{font-family:var(--caps);font-weight:600;letter-spacing:.3em;font-size:30px;margin:0;line-height:1.15}
+.subtitle{font-style:italic;font-size:20px;margin:0;color:var(--ink2)}
+.meta{margin:0 0 0 auto;font-family:var(--mono);font-size:13px;color:var(--ink2);white-space:nowrap}
+nav.jump{margin-top:10px;display:flex;flex-wrap:wrap;gap:2px 22px;font-family:var(--caps);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
 nav.jump a{text-decoration:none;padding:4px 0;border-bottom:1px solid transparent}
 nav.jump a:hover{border-bottom-color:var(--lapis)}
 
 section{padding:42px 0 8px;border-bottom:1px solid var(--hair)}
 section:last-of-type{border-bottom:0}
-h2{font-family:var(--caps);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:clamp(17px,2.4vw,22px);margin:0 0 6px}
+h2{font-family:var(--caps);font-weight:600;letter-spacing:.2em;text-transform:uppercase;font-size:15px;margin:0 0 8px}
+h2 .num{font-weight:600;color:var(--grey);font-size:15px;letter-spacing:.12em;margin-right:14px;display:inline-block;min-width:2.2em}
 h3{font-family:var(--caps);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:15px;margin:0}
 .lede{margin:0 0 20px;max-width:70ch;color:var(--ink2)}
 .panel{background:var(--panel);border:1px solid var(--hair);padding:18px 20px}
 
 /* legend */
-.legend{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px 22px;margin:0 0 26px;padding:0;list-style:none;font-size:16px}
+.summarygrid{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:34px;align-items:start}
+.keypanel{position:sticky;top:12px}
+.keypanel h3{font-size:12px;letter-spacing:.14em;color:var(--ink2);margin-bottom:12px}
+.legend{display:grid;grid-template-columns:1fr;gap:10px;margin:0;padding:0;list-style:none;font-size:16px}
 .legend li{display:flex;gap:10px;align-items:flex-start}
 .legend svg{flex:none;margin-top:5px}
 .legend b{font-weight:500}
@@ -127,7 +132,7 @@ details.tllist summary{cursor:pointer;font-family:var(--caps);font-size:13px;let
 .tlitem svg{margin-top:5px}
 
 /* method + files */
-.method{display:grid;grid-template-columns:1fr 1fr;gap:6px 44px}
+.method{display:grid;grid-template-columns:repeat(2,minmax(0,660px));gap:6px 56px}
 .method h3{margin:20px 0 6px}
 .method p,.method li{font-size:17.5px;margin:0 0 8px;max-width:62ch}
 .method ul{padding-left:20px;margin:0 0 8px}
@@ -138,8 +143,11 @@ details.tllist summary{cursor:pointer;font-family:var(--caps);font-size:13px;let
 .files .fd{font-size:15.5px;color:var(--ink2);display:block;margin-top:2px}
 footer{padding:26px 0 56px;color:var(--ink2);font-size:15.5px}
 
+@media (max-width:1000px){.summarygrid{grid-template-columns:1fr;gap:10px}.keypanel{position:static}}
+.tlwrap svg{max-width:1500px;margin:0 auto}
 /* mobile */
 @media (max-width:760px){
+  h1{font-size:24px}.subtitle{font-size:18px;flex-basis:100%}.meta{margin:2px 0 0;white-space:normal}
   body{font-size:18px}
   .wrap{padding:0 16px}
   header.top{padding:30px 0 18px}
@@ -184,9 +192,11 @@ tr.more td{text-align:center;padding:16px}
 <body>
 <header class="top">
   <div class="wrap">
-    <h1>PROMISSA</h1>
-    <p class="subtitle">What governments promised on AI, and what we can show was delivered.</p>
-    <p class="meta" id="meta">Loading data</p>
+    <div class="hdr">
+      <h1>PROMISSA</h1>
+      <p class="subtitle">What governments promised on AI, and what we can show was delivered.</p>
+      <p class="meta" id="meta">Loading data</p>
+    </div>
     <nav class="jump" aria-label="Sections">
       <a href="#summary">Promised and evidenced</a><a href="#ledger">Ledger</a><a href="#timeline">Timeline</a><a href="#method">Method</a><a href="#files">Data</a>
     </nav>
@@ -195,15 +205,20 @@ tr.more td{text-align:center;padding:16px}
 
 <main class="wrap">
 <section id="summary" aria-labelledby="h-summary">
-  <h2 id="h-summary">Promised and evidenced, by jurisdiction</h2>
+  <h2 id="h-summary"><span class="num">I</span>Promised and evidenced, by jurisdiction</h2>
   <p class="lede">Each jurisdiction has two separate bars on one shared scale in euros. The first bar sums public commitments that carry a stated amount. The second sums the amounts that sources state for what was allocated, awarded or delivered. The note under each pair says how many of the counted rows have been checked for delivery.</p>
-  <ul class="legend" id="legend" aria-label="Status key"></ul>
-  <div id="bars"></div>
-  <p class="small muted">Evidenced amounts are often budgets, allocations or contract totals. They are not spending records. Many commitments have no amount that a source states for delivery, so the evidenced bar understates what has been delivered.</p>
+  <p class="count" id="meta2"></p>
+  <div class="summarygrid">
+    <div>
+      <div id="bars"></div>
+      <p class="small muted">Evidenced amounts are often budgets, allocations or contract totals. They are not spending records. Many commitments have no amount that a source states for delivery, so the evidenced bar understates what has been delivered.</p>
+    </div>
+    <aside class="keypanel panel" aria-label="Status key"><h3>Key</h3><ul class="legend" id="legend"></ul></aside>
+  </div>
 </section>
 
 <section id="ledger" aria-labelledby="h-ledger">
-  <h2 id="h-ledger">Ledger</h2>
+  <h2 id="h-ledger"><span class="num">II</span>Ledger</h2>
   <p class="lede">Every commitment with its sources and, where checked, the evidence of delivery. Select a title to open the detail.</p>
   <div class="controls" role="search">
     <div class="search"><label for="f-q">Search</label><input id="f-q" type="search" placeholder="Title, body, ID, note" autocomplete="off"></div>
@@ -224,7 +239,7 @@ tr.more td{text-align:center;padding:16px}
 </section>
 
 <section id="timeline" aria-labelledby="h-timeline">
-  <h2 id="h-timeline">Timeline of announcements</h2>
+  <h2 id="h-timeline"><span class="num">III</span>Timeline of announcements</h2>
   <p class="lede">Each dot is an announcement, placed by date within its jurisdiction. A solid dot is counted in totals and a ring is listed only. A circle with a number groups announcements on or near the same date. A blue arc joins a re-announcement to the commitment it repeats.</p>
   <div class="tlwrap"><div id="tlsvg"></div></div>
   <p class="tlhint">Scroll the chart sideways to see all years.</p>
@@ -234,12 +249,12 @@ tr.more td{text-align:center;padding:16px}
 </section>
 
 <section id="method" aria-labelledby="h-method">
-  <h2 id="h-method">Method</h2>
+  <h2 id="h-method"><span class="num">IV</span>Method</h2>
   <div class="method" id="methodbody"></div>
 </section>
 
 <section id="files" aria-labelledby="h-files">
-  <h2 id="h-files">Data and gaps</h2>
+  <h2 id="h-files"><span class="num">V</span>Data and gaps</h2>
   <p class="lede">The site reads <span class="mono">data.json</span>, which is built from the files below.</p>
   <div class="files">
     <a href="commitments.json"><span class="fn">commitments.json</span><span class="fd">Every commitment, with source, original amount and euro value.</span></a>
@@ -595,7 +610,8 @@ function renderMethod(){
 /* ---------- init ---------- */
 function init(d){
   DATA=d;
-  document.getElementById("meta").innerHTML="Period "+esc(d.period.from)+" to "+esc(d.period.to)+"<br>"+d.stats.rows+" commitments, "+d.stats.counted+" counted in totals, "+d.stats.checked+" checked for delivery<br>Last evidence check "+esc(d.last_checked);
+  document.getElementById("meta").textContent=d.stats.rows+" rows · data "+d.last_checked;
+  document.getElementById("meta2").textContent="Period "+d.period.from+" to "+d.period.to+". "+d.stats.rows+" commitments, "+d.stats.counted+" counted in totals, "+d.stats.checked+" checked for delivery.";
   renderLegend(); renderBars(); initControls(); renderLedger(); renderTimeline(); renderMethod();
   document.body.addEventListener("click",function(e){
     var t=e.target.closest&&e.target.closest("[data-toggle]"); if(t){toggle(t.getAttribute("data-toggle"));return}
