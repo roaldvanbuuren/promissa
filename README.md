@@ -4,7 +4,7 @@ A sourced public ledger of AI commitments made by governments, set against evide
 
 Jurisdictions: United Kingdom, European Union, France, Germany, Italy, Netherlands. Period: 1 January 2023 to 9 November 2026.
 
-Status: Step 1 (commitments) is done. Delivery evidence, EUR normalisation and the site are not started.
+Status: Step 1 (commitments) and Step 2 (delivery evidence) are done. EUR normalisation and the site are not started.
 
 ## Data rules
 
@@ -14,21 +14,25 @@ Status: Step 1 (commitments) is done. Delivery evidence, EUR normalisation and t
 - `counted_in_totals` marks rows that enter the promised total. Child rows (`part_of`), re-announcements (`reannounces`), mobilisation targets, company-funded amounts, press-only figures and aggregates are listed but not summed, so nothing is counted twice.
 - Not counted by scope: private company investment announcements, general digital budgets with no AI line, party manifesto pledges.
 - Original amount and currency are kept. A EUR value comes in Step 3.
-- "No evidence found" is not "not delivered". Step 2 keeps them apart.
+- "No evidence found" is not "not delivered". Step 2 keeps them apart, and a commitment with no row in `delivery.json` is "not checked", a third state.
+- `amount_evidenced` is only an amount a cited source states for what was delivered, allocated or awarded. It is often a budget or a contract total, not spending, and it understates delivery because sources often state no amount.
 
 ## Files
 
 | File | What |
 |---|---|
 | `commitments.json` | Step 1 output |
+| `delivery.json` | Step 2 output: evidence of delivery, for the commitments that were checked |
 | `gaps.md` | Sources that failed, items not added, conflicting figures, judgement calls |
 | `build_commitments.py` | Merges `src/*.py`, validates, writes `commitments.json`, prints counts |
+| `build_delivery.py` | Reads `src/delivery_rows.py`, validates against `commitments.json`, writes `delivery.json` |
 | `src/` | One module per jurisdiction, with the row for each commitment |
 
 ## Run
 
 ```
 python3 build_commitments.py
+python3 build_delivery.py
 ```
 
 The script exits with an error if a row has no source URL, an unknown type, a broken `part_of` or `reannounces` link, an amount without a currency, a date outside the period, or a counted row that is a child or re-announcement.

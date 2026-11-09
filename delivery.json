@@ -1,0 +1,455 @@
+{
+  "project": "Promissa",
+  "file": "delivery",
+  "checked": "2026-11-09",
+  "note": "Only commitments listed here were checked. 'no evidence found' means the named sources were searched and nothing was found; it does not mean not delivered. Rows missing from this file were not checked (see gaps.md). Amounts are only what a source states and are often budgets or allocations, not spending.",
+  "statuses": [
+    "delivered",
+    "partly delivered",
+    "in progress",
+    "no evidence found",
+    "withdrawn",
+    "re-announced"
+  ],
+  "rows": [
+    {
+      "id": "UK-001",
+      "status": "partly delivered",
+      "evidence_type": "facility operating",
+      "summary": "Isambard-AI in Bristol is operating as part of the AI Research Resource, while the Edinburgh national supercomputer is funded but not yet operating.",
+      "amount_evidenced": null,
+      "currency": null,
+      "amount_evidenced_basis": null,
+      "evidence_url": "https://www.bristol.ac.uk/research/centres/bristol-supercomputing/articles/2025/isambard-ai-launches-july-2025.html",
+      "evidence_date": "2025-07",
+      "date_checked": "2026-11-09",
+      "more_urls": [
+        "https://www.nao.org.uk/wp-content/uploads/2026/03/DSITs-investment-in-research-infrastructure.pdf",
+        "https://www.gov.uk/government/publications/uk-compute-roadmap/uk-compute-roadmap"
+      ],
+      "see": null,
+      "notes": "Components are assessed in UK-003, UK-004 and UK-005. No single amount is recorded because the component figures in the sources overlap with the roughly £900 million."
+    },
+    {
+      "id": "UK-003",
+      "status": "in progress",
+      "evidence_type": "audit report",
+      "summary": "The Department for Science, Innovation and Technology has allocated £750 million to build the Edinburgh national supercomputer and run it for five years; the National Audit Office reports it is not yet operating and expects a gap after ARCHER2 closes.",
+      "amount_evidenced": 750000000,
+      "currency": "GBP",
+      "amount_evidenced_basis": "departmental allocation including contingency, as reported by the National Audit Office",
+      "evidence_url": "https://www.nao.org.uk/wp-content/uploads/2026/03/DSITs-investment-in-research-infrastructure.pdf",
+      "evidence_date": "2026-03-13",
+      "date_checked": "2026-11-09",
+      "more_urls": [
+        "https://www.gov.uk/government/publications/uk-compute-roadmap/uk-compute-roadmap"
+      ],
+      "see": null,
+      "notes": "Evidence for the Edinburgh system is held here once; UK-012 is its re-announcement. The Compute Roadmap says the system is expected online in early 2027, which is a plan, not delivery."
+    },
+    {
+      "id": "UK-004",
+      "status": "partly delivered",
+      "evidence_type": "facility operating",
+      "summary": "The first phase of the AI Research Resource is running: Isambard-AI launched in July 2025 and Dawn in Cambridge is part of the resource.",
+      "amount_evidenced": null,
+      "currency": null,
+      "amount_evidenced_basis": null,
+      "evidence_url": "https://www.bristol.ac.uk/research/centres/bristol-supercomputing/articles/2025/isambard-ai-launches-july-2025.html",
+      "evidence_date": "2025-07",
+      "date_checked": "2026-11-09",
+      "more_urls": [
+        "https://www.gov.uk/government/publications/ai-opportunities-action-plan-one-year-on/ai-opportunities-action-plan-one-year-on"
+      ],
+      "see": null,
+      "notes": "The £300 million total is not evidenced. The £225 million for Isambard-AI is recorded under UK-005. Accounts of how this £300 million relates to the £900 million in UK-001 differ (see gaps.md)."
+    },
+    {
+      "id": "UK-005",
+      "status": "delivered",
+      "evidence_type": "facility operating",
+      "summary": "Isambard-AI launched in Bristol in July 2025 with 5,448 NVIDIA superchips and is allocating compute to researchers and companies.",
+      "amount_evidenced": 225000000,
+      "currency": "GBP",
+      "amount_evidenced_basis": "investment figure stated by the University of Bristol, the host institution; not a ledger line",
+      "evidence_url": "https://www.bristol.ac.uk/research/centres/bristol-supercomputing/articles/2025/isambard-ai-launches-july-2025.html",
+      "evidence_date": "2025-07",
+      "date_checked": "2026-11-09",
+      "more_urls": [
+        "https://www.bristol.ac.uk/news/2025/november/spin-out-supercomputer.html"
+      ],
+      "see": null,
+      "notes": null
+    },
+    {
+      "id": "UK-008",
+      "status": "in progress",
+      "evidence_type": "progress report by the announcing body",
+      "summary": "The government's one-year report describes £187 million as committed to TechFirst; the report distinguishes committed money from spent money and no spend figure was read.",
+      "amount_evidenced": null,
+      "currency": null,
+      "amount_evidenced_basis": null,
+      "evidence_url": "https://www.gov.uk/government/publications/ai-opportunities-action-plan-one-year-on/ai-opportunities-action-plan-one-year-on",
+      "evidence_date": "2026-01-29",
+      "date_checked": "2026-11-09",
+      "more_urls": [],
+      "see": null,
+      "notes": null
+    },
+    {
+      "id": "UK-009",
+      "status": "in progress",
+      "evidence_type": "progress report by the announcing body",
+      "summary": "The one-year report states that over one million free AI courses have been delivered; the count is of courses, not of people trained, so it cannot be compared with the target of 7.5 million workers.",
+      "amount_evidenced": null,
+      "currency": null,
+      "amount_evidenced_basis": null,
+      "evidence_url": "https://www.gov.uk/government/publications/ai-opportunities-action-plan-one-year-on/ai-opportunities-action-plan-one-year-on",
+      "evidence_date": "2026-01-29",
+      "date_checked": "2026-11-09",
+      "more_urls": [],
+      "see": null,
+      "notes": "No amount is stated for this commitment."
+    },
+    {
+      "id": "UK-011",
+      "status": "in progress",
+      "evidence_type": "progress report by the announcing body",
+      "summary": "The one-year report states that £2 billion was committed to expand UK compute twentyfold by 2030; the AI Research Resource has launched with a first phase, and no spend figure or contract awards for the later tranches were read.",
+      "amount_evidenced": null,
+      "currency": null,
+      "amount_evidenced_basis": null,
+      "evidence_url": "https://www.gov.uk/government/publications/ai-opportunities-action-plan-one-year-on/ai-opportunities-action-plan-one-year-on",
+      "evidence_date": "2026-01-29",
+      "date_checked": "2026-11-09",
+      "more_urls": [
+        "https://www.gov.uk/government/publications/uk-compute-roadmap/uk-compute-roadmap"
+      ],
+      "see": null,
+      "notes": "The Compute Roadmap was first published in July 2025 and last updated on 23 April 2026."
+    },
+    {
+      "id": "UK-012",
+      "status": "re-announced",
+      "evidence_type": "audit report",
+      "summary": "Re-announcement of the Edinburgh supercomputer first announced in 2023; delivery evidence is recorded once, under UK-003.",
+      "amount_evidenced": null,
+      "currency": null,
+      "amount_evidenced_basis": null,
+      "evidence_url": "https://www.nao.org.uk/wp-content/uploads/2026/03/DSITs-investment-in-research-infrastructure.pdf",
+      "evidence_date": "2026-03-13",
+      "date_checked": "2026-11-09",
+      "more_urls": [],
+      "see": "UK-003",
+      "notes": null
+    },
+    {
+      "id": "UK-013",
+      "status": "in progress",
+      "evidence_type": "progress report by the announcing body",
+      "summary": "The Sovereign AI Unit has provided £8 million of seed funding to the OpenBind structural dataset consortium; the £500 million is a ceiling, and no investment total was found.",
+      "amount_evidenced": 8000000,
+      "currency": "GBP",
+      "amount_evidenced_basis": "seed funding stated in the government's one-year report",
+      "evidence_url": "https://www.gov.uk/government/publications/ai-opportunities-action-plan-one-year-on/ai-opportunities-action-plan-one-year-on",
+      "evidence_date": "2026-01-29",
+      "date_checked": "2026-11-09",
+      "more_urls": [
+        "https://www.gov.uk/government/publications/uk-compute-roadmap/uk-compute-roadmap"
+      ],
+      "see": null,
+      "notes": null
+    },
+    {
+      "id": "UK-016",
+      "status": "in progress",
+      "evidence_type": "progress report by the announcing body",
+      "summary": "The government confirmed in January 2026 that it will procure a sixfold capacity increase for Dawn in Cambridge by spring 2026; completion was not evidenced.",
+      "amount_evidenced": null,
+      "currency": null,
+      "amount_evidenced_basis": null,
+      "evidence_url": "https://www.gov.uk/government/publications/ai-opportunities-action-plan-one-year-on/ai-opportunities-action-plan-one-year-on",
+      "evidence_date": "2026-01-29",
+      "date_checked": "2026-11-09",
+      "more_urls": [],
+      "see": null,
+      "notes": null
+    },
+    {
+      "id": "UK-017",
+      "status": "in progress",
+      "evidence_type": "parliamentary answer",
+      "summary": "A written parliamentary answer of 12 October 2026 states that the AI Security Institute has been allocated £240 million over the Spending Review period to 2029-30, with 243 staff; this is an allocation, not spending.",
+      "amount_evidenced": null,
+      "currency": null,
+      "amount_evidenced_basis": null,
+      "evidence_url": "https://questions-statements.parliament.uk/written-questions/detail/2026-10-12/33991/",
+      "evidence_date": "2026-10-12",
+      "date_checked": "2026-11-09",
+      "more_urls": [],
+      "see": null,
+      "notes": "Whether this allocation includes the additional £120 million in the commitment is not established by the answer, so no amount is recorded against that claim."
+    },
+    {
+      "id": "EU-003",
+      "status": "partly delivered",
+      "evidence_type": "grant or contract award",
+      "summary": "The first AI Factories have offered services since April 2025 on existing systems; contracts for new systems were signed in March 2026 (Germany) and April 2026 (Sweden, Italy).",
+      "amount_evidenced": 319760000,
+      "currency": "EUR",
+      "amount_evidenced_basis": "sum of two total budgets stated in signed-contract releases: €290 million (IT4LIA, Italy) and €29.76 million (Mimer, Sweden); each is 50% EuroHPC and 50% national; covers two of the seven factories",
+      "evidence_url": "https://www.eurohpc-ju.europa.eu/eurohpc-ju-signs-contract-boost-ai-capabilities-it4lia-ai-factory-2026-04-22_en",
+      "evidence_date": "2026-04-22",
+      "date_checked": "2026-11-09",
+      "more_urls": [
+        "https://www.eurohpc-ju.europa.eu/eurohpc-ju-signs-contract-deploy-new-ai-optimised-supercomputer-sweden-2026-04-21_en",
+        "https://www.eurohpc-ju.europa.eu/eurohpc-ju-signs-contract-deploy-ai-supercomputer-hammerhai-2026-03-16_en"
+      ],
+      "see": null,
+      "notes": "The €1.5 billion headline is not evidenced in full. HammerHAI's system delivery was planned for the second quarter of 2026 and operation for the second half of 2026; no operating date was found."
+    },
+    {
+      "id": "EU-004",
+      "status": "in progress",
+      "evidence_type": "progress report by the announcing body",
+      "summary": "EuroHPC selected six additional AI Factory sites on 12 March 2025 (Austria, Bulgaria, France, Germany, Poland, Slovenia) and lists 19 AI Factories; no contract values for this wave were read.",
+      "amount_evidenced": null,
+      "currency": null,
+      "amount_evidenced_basis": null,
+      "evidence_url": "https://www.eurohpc-ju.europa.eu/eurohpc-ju-selects-additional-ai-factories-strengthen-europes-ai-leadership-2025-03-12_en",
+      "evidence_date": "2025-03-12",
+      "date_checked": "2026-11-09",
+      "more_urls": [
+        "https://www.eurohpc-ju.europa.eu/ai-factories_en"
+      ],
+      "see": null,
+      "notes": null
+    },
+    {
+      "id": "EU-005",
+      "status": "in progress",
+      "evidence_type": "progress report by the announcing body",
+      "summary": "EuroHPC lists 19 AI Factories and 13 antennas as being implemented; for the Netherlands, one of the later sites, the Dutch government reports that the EU subsidy was awarded in October 2025. Contracts and values for the other sites in this wave were not checked.",
+      "amount_evidenced": null,
+      "currency": null,
+      "amount_evidenced_basis": null,
+      "evidence_url": "https://www.eurohpc-ju.europa.eu/ai-factories_en",
+      "evidence_date": null,
+      "date_checked": "2026-11-09",
+      "more_urls": [
+        "https://www.rijksoverheid.nl/documenten/2025/10/13/kamerbrief-honorering-eu-financiering-voor-de-ai-fabriek-in-groningen"
+      ],
+      "see": null,
+      "notes": "Which sites belong to this wave was not checked site by site."
+    },
+    {
+      "id": "EU-009",
+      "status": "in progress",
+      "evidence_type": "progress report by the announcing body",
+      "summary": "The call opened on 30 July 2026 with a submission deadline of 12 November 2026; selection is expected in early 2027 and no gigafactory exists yet.",
+      "amount_evidenced": null,
+      "currency": null,
+      "amount_evidenced_basis": null,
+      "evidence_url": "https://www.eurohpc-ju.europa.eu/eurohpc-joint-undertaking-launches-ai-gigafactories-call-2026-07-30_en",
+      "evidence_date": "2026-07-30",
+      "date_checked": "2026-11-09",
+      "more_urls": [],
+      "see": null,
+      "notes": null
+    },
+    {
+      "id": "EU-013",
+      "status": "in progress",
+      "evidence_type": "grant or contract award",
+      "summary": "EuroHPC and the host consortium signed the supply contract with Eviden, announced on 18 November 2025; installation began in 2026 and GENCI expects commissioning in 2027.",
+      "amount_evidenced": 354800000,
+      "currency": "EUR",
+      "amount_evidenced_basis": "total budget for acquisition stated in the contract-signing release (EuroHPC 50%)",
+      "evidence_url": "https://www.eurohpc-ju.europa.eu/contract-signed-alice-recoque-europes-new-exascale-supercomputer-2025-11-18_en",
+      "evidence_date": "2025-11-18",
+      "date_checked": "2026-11-09",
+      "more_urls": [
+        "https://www.genci.fr/sites/default/files/brique/fichier/07-2026/GB-GENCI-RA2025-200x260-BD_2.pdf",
+        "https://www-hpc.cea.fr/en/AliceRecoque.html"
+      ],
+      "see": null,
+      "notes": "This is a budget, not the contract price, which the release does not state."
+    },
+    {
+      "id": "FR-001",
+      "status": "partly delivered",
+      "evidence_type": "grant or contract award",
+      "summary": "A press release of 22 May 2024 names nine winning AI Clusters sharing €360 million from France 2030, against the €500 million originally called.",
+      "amount_evidenced": 360000000,
+      "currency": "EUR",
+      "amount_evidenced_basis": "award total stated by the government for the nine winners",
+      "evidence_url": "https://www.info.gouv.fr/upload/media/content/0001/10/f111886ce0bd3882137dc5eea7222d0f6c0b37b4.pdf",
+      "evidence_date": "2024-05-22",
+      "date_checked": "2026-11-09",
+      "more_urls": [
+        "https://www.enseignementsup-recherche.gouv.fr/fr/france-2030-l-ia-comme-un-accelerateur-et-un-differentiateur-d-innovation-96213"
+      ],
+      "see": null,
+      "notes": "The sources read do not say whether the other €140 million was awarded elsewhere or left unawarded. They also do not say whether the clusters are installed."
+    },
+    {
+      "id": "FR-002",
+      "status": "partly delivered",
+      "evidence_type": "grant or contract award",
+      "summary": "Seven new winners of the generative AI digital commons call were announced in May 2024; the sources read give no award amount.",
+      "amount_evidenced": null,
+      "currency": null,
+      "amount_evidenced_basis": null,
+      "evidence_url": "https://www.enseignementsup-recherche.gouv.fr/fr/france-2030-l-ia-comme-un-accelerateur-et-un-differentiateur-d-innovation-96213",
+      "evidence_date": "2024-05-21",
+      "date_checked": "2026-11-09",
+      "more_urls": [],
+      "see": null,
+      "notes": "The original call amount of €40 million is not matched to awards."
+    },
+    {
+      "id": "FR-003",
+      "status": "delivered",
+      "evidence_type": "facility operating",
+      "summary": "GENCI reports that Jean Zay's computing power was quadrupled and the Jean Zay 4 extension inaugurated in May 2025.",
+      "amount_evidenced": 40000000,
+      "currency": "EUR",
+      "amount_evidenced_basis": "investment of about €40 million stated in GENCI's 2024 annual report for the 2024 Jean Zay extension, funded by France 2030; assumed to be the same extension (moderate confidence)",
+      "evidence_url": "https://www.genci.fr/sites/default/files/brique/fichier/07-2026/GB-GENCI-RA2025-200x260-BD_2.pdf",
+      "evidence_date": "2025-05-14",
+      "date_checked": "2026-11-09",
+      "more_urls": [
+        "https://www.genci.fr/sites/default/files/brique/fichier/12-2025/VF%20GENCI-RA2024_EN_BD5%20dble.pdf"
+      ],
+      "see": null,
+      "notes": null
+    },
+    {
+      "id": "DE-001",
+      "status": "in progress",
+      "evidence_type": "budget line",
+      "summary": "The ministry's own summary shows AI budget lines of €427.2 million for 2023 and €483.3 million for 2024 (planned figures); outturn for those years and budget lines for 2025 and 2026 were not found.",
+      "amount_evidenced": 910500000,
+      "currency": "EUR",
+      "amount_evidenced_basis": "sum of planned budget lines for 2023 and 2024, not outturn",
+      "evidence_url": "https://www.bmftr.bund.de/SharedDocs/Downloads/DE/2023/230823-executive-summary-ki-aktionsplan.pdf",
+      "evidence_date": "2023-11",
+      "date_checked": "2026-11-09",
+      "more_urls": [],
+      "see": null,
+      "notes": "The sum is arithmetic on two stated figures. It is a budget, not spending."
+    },
+    {
+      "id": "DE-003",
+      "status": "in progress",
+      "evidence_type": "progress report by the announcing body",
+      "summary": "The digital ministry reports that 25 of the 28 measures had started and four were completed six months after the strategy was adopted.",
+      "amount_evidenced": null,
+      "currency": null,
+      "amount_evidenced_basis": null,
+      "evidence_url": "https://bmds.bund.de/aktuelles/pressemitteilungen/detail/halbjahresbilanz-rechenzentrumsstrategie-wir-setzen-den-fahrplan-zuegig-um",
+      "evidence_date": "2026-09-18",
+      "date_checked": "2026-11-09",
+      "more_urls": [],
+      "see": null,
+      "notes": "Self-reported by the ministry responsible for the strategy. No independent check found."
+    },
+    {
+      "id": "DE-004",
+      "status": "in progress",
+      "evidence_type": "progress report by the announcing body",
+      "summary": "The research ministry states that the EU competition for gigafactory sites opened on 30 July 2026; no German consortium has been selected.",
+      "amount_evidenced": null,
+      "currency": null,
+      "amount_evidenced_basis": null,
+      "evidence_url": "https://www.bmftr.bund.de/SharedDocs/Kurzmeldungen/DE/2026/07/300726-ai-gigafactories.html",
+      "evidence_date": "2026-07-30",
+      "date_checked": "2026-11-09",
+      "more_urls": [
+        "https://www.eurohpc-ju.europa.eu/eurohpc-joint-undertaking-launches-ai-gigafactories-call-2026-07-30_en"
+      ],
+      "see": null,
+      "notes": null
+    },
+    {
+      "id": "DE-005",
+      "status": "in progress",
+      "evidence_type": "progress report by the announcing body",
+      "summary": "The digital ministry's September 2026 release says €30.7 million flows until 2030 into new AI computing capacity for national high-performance computing; no grant award, contract or operating system was found.",
+      "amount_evidenced": null,
+      "currency": null,
+      "amount_evidenced_basis": null,
+      "evidence_url": "https://bmds.bund.de/aktuelles/pressemitteilungen/detail/halbjahresbilanz-rechenzentrumsstrategie-wir-setzen-den-fahrplan-zuegig-um",
+      "evidence_date": "2026-09-18",
+      "date_checked": "2026-11-09",
+      "more_urls": [],
+      "see": null,
+      "notes": "The release restates the commitment. No amount is recorded as evidenced because restating the figure is not evidence of delivery. Not searched: the federal budget plan and Bundestag documents."
+    },
+    {
+      "id": "IT-001",
+      "status": "partly delivered",
+      "evidence_type": "progress report by the announcing body",
+      "summary": "CDP Venture Capital reports more than €300 million of the AI envelope already allocated, supporting about 150 startups and about 20 funds.",
+      "amount_evidenced": 300000000,
+      "currency": "EUR",
+      "amount_evidenced_basis": "lower bound stated by CDP Venture Capital (over €300 million); self-reported by the investor",
+      "evidence_url": "https://www.cdpventurecapital.it/en/news.page?contentId=COM52473",
+      "evidence_date": "2026-06-12",
+      "date_checked": "2026-11-09",
+      "more_urls": [],
+      "see": null,
+      "notes": "A Council of Ministers communiqué seen only as a search snippet gives €313 million in its annexes; the page could not be loaded to confirm."
+    },
+    {
+      "id": "IT-003",
+      "status": "re-announced",
+      "evidence_type": "progress report by the announcing body",
+      "summary": "The law authorising up to €1 billion in equity and quasi-equity investments through CDP Venture Capital restates the envelope in IT-001; evidence is recorded once, under IT-001.",
+      "amount_evidenced": null,
+      "currency": null,
+      "amount_evidenced_basis": null,
+      "evidence_url": "https://innovazione.gov.it/notizie/interventi/intelligenza-artificiale-si-alla-legge-c-e-un-miliardo/",
+      "evidence_date": "2025-09-18",
+      "date_checked": "2026-11-09",
+      "more_urls": [],
+      "see": "IT-001",
+      "notes": null
+    },
+    {
+      "id": "NL-001",
+      "status": "partly delivered",
+      "evidence_type": "progress report by the announcing body",
+      "summary": "SURF reported on 26 February 2026 that the language model is fully trained and that ten launching customers get early access in the first quarter, with a wider rollout in the autumn.",
+      "amount_evidenced": null,
+      "currency": null,
+      "amount_evidenced_basis": null,
+      "evidence_url": "https://www.surf.nl/en/news/towards-transparent-fair-and-verifiable-use-of-ai",
+      "evidence_date": "2026-02-26",
+      "date_checked": "2026-11-09",
+      "more_urls": [
+        "https://ventures.tno.nl/portfolio/gpt-nl/"
+      ],
+      "see": null,
+      "notes": "The page does not state a budget, so no amount is recorded. The page does not state the year of the autumn rollout (context points to 2026)."
+    },
+    {
+      "id": "NL-004",
+      "status": "in progress",
+      "evidence_type": "progress report by the announcing body",
+      "summary": "A Cabinet letter to Parliament of 13 October 2025 reports that EuroHPC awarded the EU subsidy (about €71.7 million) against a total investment of about €202.6 million; the expertise centre starts in 2026 and the supercomputer is expected at full capacity in 2027.",
+      "amount_evidenced": null,
+      "currency": null,
+      "amount_evidenced_basis": null,
+      "evidence_url": "https://www.rijksoverheid.nl/documenten/2025/10/13/kamerbrief-honorering-eu-financiering-voor-de-ai-fabriek-in-groningen",
+      "evidence_date": "2025-10-13",
+      "date_checked": "2026-11-09",
+      "more_urls": [
+        "https://www.tweedekamer.nl/kamerstukken/brieven_regering/detail?id=2025Z22569&did=2025D53584",
+        "https://www.surf.nl/en/news/netherlands-gets-ai-factory-european-funding-awarded"
+      ],
+      "see": null,
+      "notes": "The letter gives national and regional money together (about €130.9 million), so the Cabinet's own €70 million is not separated and no amount is recorded."
+    }
+  ]
+}

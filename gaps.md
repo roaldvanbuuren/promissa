@@ -1,6 +1,6 @@
 # Gaps
 
-Written as the work goes. Last updated 9 November 2026 (Step 1).
+Written as the work goes. Last updated 9 November 2026 (Step 2).
 
 ## Sources that failed to load
 
@@ -65,7 +65,35 @@ Written as the work goes. Last updated 9 November 2026 (Step 1).
 
 ## Delivery I could not check yet
 
-Step 2 has not started. Nothing in `commitments.json` says whether anything was delivered.
+`delivery.json` holds 27 of 63 rows. The rest were not checked. They are unchecked, which is different from "no evidence found". The site must show them as "not checked".
+
+| Jurisdiction | Not checked (36 rows in all) |
+|---|---|
+| United Kingdom | UK-002, UK-006, UK-007, UK-010, UK-014, UK-015, UK-018, UK-019, UK-020, UK-021, UK-022, UK-023, UK-024, UK-025, UK-026, UK-027, UK-028, UK-029, UK-030 |
+| European Union | EU-001, EU-002, EU-006, EU-007, EU-008, EU-010, EU-011, EU-012, EU-014 |
+| France | FR-004, FR-005, FR-006 |
+| Germany | DE-002, DE-006 |
+| Italy | IT-002 |
+| Netherlands | NL-002, NL-003 |
+
+Reasons: most UK rows are October 2026 Budget items or 2025 and 2026 small programmes where no outturn data would exist yet; EU-006, EU-010, EU-011 and EU-012 were not searched; FR-005 and NL-002 were researched but the pages I wanted to cite could not be loaded or their addresses could not be confirmed, so I did not cite them (FR-005: info.gouv.fr page failed to load; NL-002: the rijksoverheid.nl address was truncated in my notes and the AiNed amount was not read).
+
+## Delivery evidence caveats
+
+| Row | Caveat |
+|---|---|
+| All | Evidence from the announcing body is self-reported, and rows say so. Only UK-003 (National Audit Office), UK-017 (parliamentary answer) and NL-004 (Cabinet letter to Parliament) come from an audit body or Parliament |
+| UK-004, UK-005, UK-003 | The evidenced amounts for Isambard-AI (£225 million, host university) and Edinburgh (£750 million, National Audit Office) sit on child rows, which are not in the promised total. A per-jurisdiction bar built from counted rows alone would leave them out. Decision needed for Step 3 and Step 4 |
+| UK-017 | £240 million allocated over the Spending Review is not shown to include the "+£120 million" in the commitment |
+| UK-009 | "Over one million courses" counts courses, not people, so it does not compare with the 7.5 million workers target |
+| EU-003 | €319.76 million is the sum of two contract budgets (Italy, Sweden) that are half national money, and covers two of seven factories |
+| FR-001 | The press release of 22 May 2024 gives €360 million to nine winners. An earlier note of mine said "nine installed" and "over €420 million"; the release does not say either, so neither is used |
+| FR-003 | €40 million is from GENCI's 2024 annual report and is assumed to be the same extension as the commitment; moderate confidence |
+| DE-001 | €910.5 million is two years of planned budget lines (2023, 2024) in the ministry's own summary. It is a plan, not outturn |
+| DE-005 | The only mention found restates the commitment, so status is "in progress" with no evidenced amount. Not searched: federal budget plan, Bundestag documents |
+| IT-001 | The CDP figure (over €300 million) is self-reported by the investor. A communiqué with €313 million could not be loaded |
+| NL-001 | The SURF page states no budget, so no amount is recorded, although the €13.5 million award is in the commitment row |
+| NL-004 | EU award about €71.7 million (Cabinet letter) against €70 million in some SURF material; the Cabinet's own share cannot be separated from the €130.9 million national and regional total |
 
 ## Judgement calls for review
 
