@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Promissa: a public ledger of government AI commitments</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Crect width=%2716%27 height=%2716%27 fill=%27%23F3EFE6%27/%3E%3Ccircle cx=%278%27 cy=%278%27 r=%275%27 fill=%27%231F3F8F%27/%3E%3C/svg%3E">
+<meta name="description" content="A sourced public ledger of AI commitments made by governments, set against evidence of what was delivered.">
+<style>
+@font-face{font-family:"Cinzel";src:url("fonts/cinzel-latin-400-normal.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Cinzel";src:url("fonts/cinzel-latin-600-normal.woff2") format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"EB Garamond";src:url("fonts/eb-garamond-latin-400-normal.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"EB Garamond";src:url("fonts/eb-garamond-latin-400-italic.woff2") format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"EB Garamond";src:url("fonts/eb-garamond-latin-500-normal.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url("fonts/ibm-plex-mono-latin-400-normal.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url("fonts/ibm-plex-mono-latin-500-normal.woff2") format("woff2");font-weight:500;font-display:swap}
+
+:root{
+  --bone:#F3EFE6; --panel:#FAF8F3; --ink:#141414; --ink2:#5C5A55; --hair:#D8D3C7; --lapis:#1F3F8F; --grey:#8A867C;
+  --serif:"EB Garamond", Garamond, "Times New Roman", serif;
+  --caps:"Cinzel", "Trajan Pro", Georgia, serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bone);color:var(--ink);font-family:var(--serif);font-size:19px;line-height:1.5}
+a{color:var(--lapis);text-underline-offset:2px}
+a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--lapis);outline-offset:2px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.caps{font-family:var(--caps);font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--ink2)}
+.small{font-size:15px}
+
+/* header */
+header.top{border-bottom:1px solid var(--hair);padding:44px 0 22px}
+h1{font-family:var(--caps);font-weight:600;letter-spacing:.22em;font-size:clamp(30px,6vw,54px);margin:0;line-height:1.1}
+.subtitle{font-size:clamp(19px,2.6vw,25px);margin:10px 0 0;max-width:46ch;color:var(--ink)}
+.meta{margin:18px 0 0;font-family:var(--mono);font-size:13px;color:var(--ink2);line-height:1.7}
+nav.jump{margin-top:16px;display:flex;flex-wrap:wrap;gap:6px 22px;font-family:var(--caps);font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+nav.jump a{text-decoration:none;padding:4px 0;border-bottom:1px solid transparent}
+nav.jump a:hover{border-bottom-color:var(--lapis)}
+
+section{padding:42px 0 8px;border-bottom:1px solid var(--hair)}
+section:last-of-type{border-bottom:0}
+h2{font-family:var(--caps);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:clamp(17px,2.4vw,22px);margin:0 0 6px}
+h3{font-family:var(--caps);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:15px;margin:0}
+.lede{margin:0 0 20px;max-width:70ch;color:var(--ink2)}
+.panel{background:var(--panel);border:1px solid var(--hair);padding:18px 20px}
+
+/* legend */
+.legend{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px 22px;margin:0 0 26px;padding:0;list-style:none;font-size:16px}
+.legend li{display:flex;gap:10px;align-items:flex-start}
+.legend svg{flex:none;margin-top:5px}
+.legend b{font-weight:500}
+
+/* bars */
+.jur{padding:16px 0 18px;border-top:1px solid var(--hair)}
+.jur:first-of-type{border-top:0}
+.barrow{display:grid;grid-template-columns:150px 1fr 100px;align-items:center;gap:12px;margin-top:8px}
+.barrow .lab{font-size:16px;color:var(--ink2)}
+.track{height:18px;background:transparent;border-left:1px solid var(--ink);position:relative}
+.bar{height:100%;min-width:2px}
+.bar.promised{background:repeating-linear-gradient(135deg,var(--ink) 0 2px,transparent 2px 5px);border:1px solid var(--ink);border-left:0}
+.bar.evid{background:var(--lapis)}
+.none{font-family:var(--mono);font-size:12px;color:var(--grey);padding-left:8px;line-height:18px}
+.barrow .num{text-align:right;font-size:15px}
+.jmeta{margin:8px 0 0;font-size:15px;color:var(--ink2)}
+.jflag{margin:4px 0 0;font-size:15px;color:var(--ink2);font-style:italic}
+
+/* controls */
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:14px 0 8px}
+.controls label{display:block;font-family:var(--caps);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);margin-bottom:3px}
+.controls select,.controls input{width:100%;font:inherit;font-size:16px;padding:8px 10px;background:var(--panel);color:var(--ink);border:1px solid var(--hair);border-radius:0;-webkit-appearance:none;appearance:none;min-height:42px}
+.controls select{background-image:linear-gradient(45deg,transparent 50%,var(--ink2) 50%),linear-gradient(135deg,var(--ink2) 50%,transparent 50%);background-position:calc(100% - 17px) 18px,calc(100% - 12px) 18px;background-size:5px 5px;background-repeat:no-repeat;padding-right:30px}
+.controls .search{grid-column:span 2}
+.count{margin:6px 0 12px;font-family:var(--mono);font-size:13px;color:var(--ink2)}
+.reset{font:inherit;font-size:15px;background:none;border:0;color:var(--lapis);text-decoration:underline;cursor:pointer;padding:0 0 0 8px}
+
+/* ledger table */
+.tablewrap{background:var(--panel);border:1px solid var(--hair)}
+table{width:100%;border-collapse:collapse;font-size:17px}
+th{font-family:var(--caps);font-weight:600;font-size:11px;letter-spacing:.1em;text-transform:uppercase;text-align:left;color:var(--ink2);padding:10px 10px;border-bottom:1px solid var(--ink);background:var(--panel)}
+td{padding:11px 10px;vertical-align:top;border-bottom:1px solid var(--hair)}
+tr.r.flash td{background:#E9EEF8}
+.c-status{white-space:nowrap;width:150px}
+.c-status .stlab{font-size:14px;color:var(--ink2);margin-left:6px;vertical-align:1px}
+.c-id{font-size:13px;white-space:nowrap}
+.c-date{font-size:13px;white-space:nowrap}
+.c-prom,.c-evid{font-size:13px;min-width:120px}
+.c-prom .eur,.c-evid .eur{display:block;color:var(--ink2)}
+.c-prom .tag{display:block;font-family:var(--serif);font-size:14px;color:var(--grey);font-style:italic;margin-top:2px}
+.c-src{font-size:15px;white-space:nowrap}
+.c-src a{display:block}
+.lnk{font:inherit;font-weight:500;text-align:left;background:none;border:0;padding:0;color:var(--ink);cursor:pointer;text-decoration:underline;text-decoration-color:var(--hair);text-underline-offset:3px}
+.lnk:hover{text-decoration-color:var(--lapis)}
+.struck .lnk{text-decoration:line-through}
+.subline{display:block;font-size:14px;color:var(--ink2);margin-top:2px}
+tr.detail td{background:var(--bone);padding:16px 18px}
+.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px 30px}
+.dgrid h4{margin:0 0 6px;font-family:var(--caps);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);font-weight:600}
+.dgrid p{margin:0 0 8px;font-size:16.5px}
+.dgrid dl{margin:0;font-size:15px}
+.dgrid dt{float:left;clear:left;width:9.5em;color:var(--ink2)}
+.dgrid dd{margin:0 0 3px 9.5em}
+.chip{display:inline-block;font-family:var(--mono);font-size:12px;border:1px solid var(--hair);background:var(--panel);padding:1px 7px;margin:2px 4px 2px 0;color:var(--lapis);cursor:pointer}
+button.chip{font-family:var(--mono)}
+.empty{padding:26px;text-align:center;color:var(--ink2)}
+
+/* timeline */
+.tlwrap{overflow-x:auto;background:var(--panel);border:1px solid var(--hair)}
+.tlwrap svg{display:block;min-width:820px;width:100%;height:auto}
+.tlwrap text{font-family:var(--mono);font-size:10.5px;fill:var(--ink2)}
+.tlwrap text.lane{font-family:var(--caps);font-size:11px;letter-spacing:.06em;fill:var(--ink);text-transform:uppercase}
+.tlwrap text.cnt{fill:var(--ink);font-size:10px;text-anchor:middle}
+.tlwrap .dot{cursor:pointer}
+.tlwrap .arc{fill:none;stroke:var(--lapis);stroke-width:1.6}
+.linked{margin:12px 0 4px;padding:0;list-style:none;font-size:16.5px}
+.linked li{padding:5px 0;border-bottom:1px solid var(--hair)}
+#tlsel{min-height:24px;margin:10px 0 0;font-size:15.5px}
+details.tllist{margin-top:14px}
+details.tllist summary{cursor:pointer;font-family:var(--caps);font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:6px 0}
+.tlyear{font-family:var(--caps);font-size:14px;letter-spacing:.12em;margin:20px 0 6px;color:var(--lapis)}
+.tlitem{display:grid;grid-template-columns:96px 22px 1fr auto;gap:8px;padding:7px 0;border-bottom:1px solid var(--hair);font-size:16.5px;align-items:start}
+.tlitem .d{font-family:var(--mono);font-size:12.5px;color:var(--ink2);padding-top:3px}
+.tlitem .a{font-family:var(--mono);font-size:12.5px;text-align:right;padding-top:3px;color:var(--ink2)}
+.tlitem svg{margin-top:5px}
+
+/* method + files */
+.method{display:grid;grid-template-columns:1fr 1fr;gap:6px 44px}
+.method h3{margin:20px 0 6px}
+.method p,.method li{font-size:17.5px;margin:0 0 8px;max-width:62ch}
+.method ul{padding-left:20px;margin:0 0 8px}
+.files{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0 30px}
+.files a{display:block;background:var(--panel);border:1px solid var(--hair);padding:14px 16px;text-decoration:none;color:var(--ink)}
+.files a:hover{border-color:var(--lapis)}
+.files .fn{font-family:var(--mono);font-size:15px;color:var(--lapis);display:block}
+.files .fd{font-size:15.5px;color:var(--ink2);display:block;margin-top:2px}
+footer{padding:26px 0 56px;color:var(--ink2);font-size:15.5px}
+
+/* mobile */
+@media (max-width:760px){
+  body{font-size:18px}
+  .wrap{padding:0 16px}
+  header.top{padding:30px 0 18px}
+  .barrow{grid-template-columns:1fr auto;gap:4px 10px}
+  .barrow .lab{grid-column:1 / -1;font-size:15px;margin-bottom:-2px}
+  .barrow .num{text-align:right}
+  .controls{grid-template-columns:1fr 1fr}
+  .controls .search{grid-column:1 / -1}
+  table,thead,tbody,tr,td{display:block}
+  thead{position:absolute;left:-9999px}
+  tr.r{padding:12px 12px 6px;border-bottom:1px solid var(--ink)}
+  tr.r td{border:0;padding:3px 0;display:flex;gap:10px;justify-content:space-between;align-items:flex-start;width:auto;min-width:0;white-space:normal}
+  tr.r td::before{content:attr(data-label);flex:none;width:92px;font-family:var(--caps);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);padding-top:5px}
+  tr.r td.c-status svg{margin-left:auto}
+  tr.r td.c-status .stlab{margin-left:0}
+  tr.r td.c-title{display:block}
+  tr.r td.c-title::before{display:block;width:auto;padding:0 0 2px}
+  tr.r td > *:not(.subline){text-align:right}
+  tr.r td.c-title > *{text-align:left}
+  .c-src a{display:inline-block;margin-left:10px}
+  tr.detail,tr.detail td{display:block}
+  tr.more td{display:block;border:0}
+  tr.detail td{padding:14px 14px}
+  tr.detail[hidden]{display:none}
+  .dgrid{grid-template-columns:1fr}
+  .dgrid dt{float:none;width:auto}
+  .dgrid dd{margin:0 0 6px}
+  .method{grid-template-columns:1fr}
+  .tlitem{grid-template-columns:78px 20px 1fr}
+  .tlitem .a{grid-column:3;text-align:left;padding-top:0}
+}
+.cellv span{display:block}
+.cellv .eur{display:block}
+tr.more td{text-align:center;padding:16px}
+.morebtn{font-family:var(--caps);font-size:12px;letter-spacing:.1em;text-transform:uppercase;background:var(--panel);color:var(--lapis);border:1px solid var(--lapis);padding:11px 20px;min-height:44px;cursor:pointer}
+.morebtn:hover{background:var(--lapis);color:var(--panel)}
+.tlhint{display:none;font-size:15px;color:var(--ink2);margin:6px 0 0}
+@media (max-width:860px){.tlhint{display:block}}
+@media print{nav.jump,.controls{display:none}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <h1>PROMISSA</h1>
+    <p class="subtitle">What governments promised on AI, and what we can show was delivered.</p>
+    <p class="meta" id="meta">Loading data</p>
+    <nav class="jump" aria-label="Sections">
+      <a href="#summary">Promised and evidenced</a><a href="#ledger">Ledger</a><a href="#timeline">Timeline</a><a href="#method">Method</a><a href="#files">Data</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+<section id="summary" aria-labelledby="h-summary">
+  <h2 id="h-summary">Promised and evidenced, by jurisdiction</h2>
+  <p class="lede">Each jurisdiction has two separate bars on one shared scale in euros. The first bar sums public commitments that carry a stated amount. The second sums the amounts that sources state for what was allocated, awarded or delivered. The note under each pair says how many of the counted rows have been checked for delivery.</p>
+  <ul class="legend" id="legend" aria-label="Status key"></ul>
+  <div id="bars"></div>
+  <p class="small muted">Evidenced amounts are often budgets, allocations or contract totals. They are not spending records. Many commitments have no amount that a source states for delivery, so the evidenced bar understates what has been delivered.</p>
+</section>
+
+<section id="ledger" aria-labelledby="h-ledger">
+  <h2 id="h-ledger">Ledger</h2>
+  <p class="lede">Every commitment with its sources and, where checked, the evidence of delivery. Select a title to open the detail.</p>
+  <div class="controls" role="search">
+    <div class="search"><label for="f-q">Search</label><input id="f-q" type="search" placeholder="Title, body, ID, note" autocomplete="off"></div>
+    <div><label for="f-jur">Jurisdiction</label><select id="f-jur"></select></div>
+    <div><label for="f-type">Type</label><select id="f-type"></select></div>
+    <div><label for="f-status">Status</label><select id="f-status"></select></div>
+    <div><label for="f-year">Year announced</label><select id="f-year"></select></div>
+    <div><label for="f-tot">In totals</label><select id="f-tot"><option value="">All rows</option><option value="yes">Counted in totals</option><option value="no">Listed only</option></select></div>
+    <div><label for="f-sort">Order</label><select id="f-sort"><option value="new">Newest first</option><option value="old">Oldest first</option><option value="jur">Jurisdiction</option><option value="amt">Largest promised</option></select></div>
+  </div>
+  <p class="count" id="count" aria-live="polite"></p>
+  <div class="tablewrap">
+    <table id="tbl">
+      <thead><tr><th scope="col">Status</th><th scope="col">ID</th><th scope="col">Announced</th><th scope="col">Commitment</th><th scope="col">Promised</th><th scope="col">Evidenced</th><th scope="col">Sources</th></tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</section>
+
+<section id="timeline" aria-labelledby="h-timeline">
+  <h2 id="h-timeline">Timeline of announcements</h2>
+  <p class="lede">Each dot is an announcement, placed by date within its jurisdiction. A solid dot is counted in totals and a ring is listed only. A circle with a number groups announcements on or near the same date. A blue arc joins a re-announcement to the commitment it repeats.</p>
+  <div class="tlwrap"><div id="tlsvg"></div></div>
+  <p class="tlhint">Scroll the chart sideways to see all years.</p>
+  <div id="tlsel" aria-live="polite"></div>
+  <ul class="linked" id="linked"></ul>
+  <details class="tllist"><summary>All announcements in date order</summary><div id="tllist"></div></details>
+</section>
+
+<section id="method" aria-labelledby="h-method">
+  <h2 id="h-method">Method</h2>
+  <div class="method" id="methodbody"></div>
+</section>
+
+<section id="files" aria-labelledby="h-files">
+  <h2 id="h-files">Data and gaps</h2>
+  <p class="lede">The site reads <span class="mono">data.json</span>, which is built from the files below.</p>
+  <div class="files">
+    <a href="commitments.json"><span class="fn">commitments.json</span><span class="fd">Every commitment, with source, original amount and euro value.</span></a>
+    <a href="delivery.json"><span class="fn">delivery.json</span><span class="fd">Evidence of delivery for the commitments checked, with the roll-up.</span></a>
+    <a href="rates.json"><span class="fn">rates.json</span><span class="fd">ECB reference rates used for conversion, with dates.</span></a>
+    <a href="gaps.md"><span class="fn">gaps.md</span><span class="fd">What could not be sourced, conflicting figures, and rows not checked.</span></a>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">Promissa. Neutral record of public statements and published evidence. The source for each figure is linked in its row.</div></footer>
+
+<script>
+"use strict";
+(function(){
+var DATA=null, PAGE=20, limit=PAGE, state={q:"",jur:"",type:"",status:"",year:"",tot:"",sort:"new"};
+var JORD=["United Kingdom","European Union","France","Germany","Italy","Netherlands"];
+var CODE={"United Kingdom":"UK","European Union":"EU","France":"FR","Germany":"DE","Italy":"IT","Netherlands":"NL"};
+var TYPES=["funding programme","compute","institute","gigafactory","skills","tax incentive","partnership"];
+var STATUS_ORDER=["delivered","partly delivered","in progress","no evidence found","withdrawn","re-announced","not checked"];
+var STATUS_DEF={
+ "delivered":"A source shows the facility operating or the money paid out, as promised.",
+ "partly delivered":"A source shows part of the promise delivered.",
+ "in progress":"A source shows steps taken, such as an allocation, call or contract, and the promise is not yet complete.",
+ "no evidence found":"The named sources were searched and show nothing. This records a search result and makes no claim about delivery.",
+ "withdrawn":"The government has withdrawn or cancelled the commitment.",
+ "re-announced":"The row repeats an earlier commitment. Evidence is recorded once, on the original.",
+ "not checked":"No delivery check has been made for this row yet."
+};
+
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function safeUrl(u){return /^https?:\/\//i.test(u||"")?u:"#"}
+function link(u,t){return '<a href="'+esc(safeUrl(u))+'" target="_blank" rel="noopener noreferrer">'+esc(t)+'</a>'}
+function trim(n,d){return String(parseFloat(n.toFixed(d)))}
+function fmt(n,sym){
+  if(n==null) return "";
+  var a=Math.abs(n);
+  if(a>=1e9) return sym+trim(n/1e9,2)+"bn";
+  if(a>=1e6) return sym+trim(n/1e6,1)+"m";
+  if(a>=1e3) return sym+trim(n/1e3,0)+"k";
+  return sym+n;
+}
+var SYM={EUR:"€",GBP:"£"};
+function fmtOrig(n,cur){return fmt(n,SYM[cur]||cur+" ")}
+function dateLabel(r){
+  if(r.date_precision==="year") return r.date_announced.slice(0,4)+" (year)";
+  if(r.date_precision==="month") return r.date_announced.slice(0,7)+" (month)";
+  return r.date_announced;
+}
+function statusOf(r){return r.delivery?r.delivery.status:"not checked"}
+
+/* status shapes: solid, half, ring, small dot, struck ring, diamond, dashed ring */
+function shape(s,size){
+  size=size||14;
+  var L="#1F3F8F",G="#8A867C",I="#141414",p='<svg width="'+size+'" height="'+size+'" viewBox="0 0 14 14" role="img" aria-label="'+esc(s)+'" focusable="false"><title>'+esc(s)+'</title>';
+  var m={
+   "delivered":'<circle cx="7" cy="7" r="6" fill="'+L+'"/>',
+   "partly delivered":'<circle cx="7" cy="7" r="5.4" fill="none" stroke="'+L+'" stroke-width="1.5"/><path d="M7 1.6A5.4 5.4 0 0 0 7 12.4Z" fill="'+L+'"/>',
+   "in progress":'<circle cx="7" cy="7" r="5.4" fill="none" stroke="'+L+'" stroke-width="1.8"/>',
+   "no evidence found":'<circle cx="7" cy="7" r="2.6" fill="'+G+'"/>',
+   "withdrawn":'<circle cx="7" cy="7" r="5.4" fill="none" stroke="'+I+'" stroke-width="1.4"/><line x1="0.8" y1="7" x2="13.2" y2="7" stroke="'+I+'" stroke-width="1.6"/>',
+   "re-announced":'<path d="M7 1.2L12.8 7L7 12.8L1.2 7Z" fill="none" stroke="'+L+'" stroke-width="1.5"/>',
+   "not checked":'<circle cx="7" cy="7" r="5.4" fill="none" stroke="'+G+'" stroke-width="1.4" stroke-dasharray="2 2.2"/>'
+  };
+  return p+(m[s]||"")+'</svg>';
+}
+
+function byId(id){for(var i=0;i<DATA.rows.length;i++) if(DATA.rows[i].id===id) return DATA.rows[i]; return null}
+
+/* ---------- summary bars ---------- */
+function renderLegend(){
+  document.getElementById("legend").innerHTML=STATUS_ORDER.map(function(s){
+    return '<li>'+shape(s,16)+'<span><b>'+esc(s)+'</b>. '+esc(STATUS_DEF[s])+'</span></li>';
+  }).join("");
+}
+function renderBars(){
+  var max=0; DATA.jurisdictions.forEach(function(j){max=Math.max(max,j.promised_eur,j.evidenced_eur)});
+  var html=DATA.jurisdictions.map(function(j){
+    var pw=max?(j.promised_eur/max*100):0, ew=max?(j.evidenced_eur/max*100):0;
+    var evid=j.evidenced_eur>0
+      ? '<div class="bar evid" style="width:'+ew.toFixed(2)+'%"></div>'
+      : '';
+    var evidNum=j.evidenced_eur>0?fmt(j.evidenced_eur,"€"):"none stated";
+    var pl=function(n,w){return n+" "+w+(n===1?"":"s")};
+    var note=pl(j.counted,"commitment")+" counted in the promised bar; "+j.counted_checked+" checked for delivery"+(j.counted_unchecked?", "+j.counted_unchecked+" not checked":"")+". "+pl(j.listed_not_counted,"more row")+" listed without being counted.";
+    var flags=j.flags.length?'<p class="jflag">'+j.flags.map(esc).join(" ")+'</p>':"";
+    return '<div class="jur"><h3>'+esc(j.name)+'</h3>'+
+      '<div class="barrow"><span class="lab">Promised</span><div class="track" role="img" aria-label="Promised '+esc(fmt(j.promised_eur,"€"))+'"><div class="bar promised" style="width:'+pw.toFixed(2)+'%"></div></div><span class="num mono">'+esc(fmt(j.promised_eur,"€"))+'</span></div>'+
+      '<div class="barrow"><span class="lab">Evidenced delivered</span><div class="track" role="img" aria-label="Evidenced delivered '+esc(evidNum)+'">'+evid+'</div><span class="num mono">'+esc(evidNum)+'</span></div>'+
+      '<p class="jmeta">'+esc(note)+'</p>'+flags+'</div>';
+  }).join("");
+  document.getElementById("bars").innerHTML=html;
+}
+
+/* ---------- ledger ---------- */
+function fillSelect(id,opts,first){
+  var el=document.getElementById(id);
+  el.innerHTML='<option value="">'+first+'</option>'+opts.map(function(o){return '<option value="'+esc(o)+'">'+esc(o)+'</option>'}).join("");
+}
+function initControls(){
+  fillSelect("f-jur",JORD,"All jurisdictions");
+  fillSelect("f-type",TYPES,"All types");
+  fillSelect("f-status",STATUS_ORDER,"All statuses");
+  var yrs={}; DATA.rows.forEach(function(r){yrs[r.date_announced.slice(0,4)]=1});
+  fillSelect("f-year",Object.keys(yrs).sort().reverse(),"All years");
+  var map={"f-q":"q","f-jur":"jur","f-type":"type","f-status":"status","f-year":"year","f-tot":"tot","f-sort":"sort"};
+  Object.keys(map).forEach(function(id){
+    var el=document.getElementById(id);
+    el.addEventListener(id==="f-q"?"input":"change",function(){state[map[id]]=el.value;limit=PAGE;renderLedger()});
+  });
+}
+function matches(r){
+  if(state.jur&&r.jurisdiction!==state.jur) return false;
+  if(state.type&&r.type!==state.type) return false;
+  if(state.status&&statusOf(r)!==state.status) return false;
+  if(state.year&&r.date_announced.slice(0,4)!==state.year) return false;
+  if(state.tot==="yes"&&!r.counted_in_totals) return false;
+  if(state.tot==="no"&&r.counted_in_totals) return false;
+  if(state.q){
+    var d=r.delivery||{};
+    var hay=[r.id,r.title,r.promised,r.body,r.notes,r.amount_as_stated,r.jurisdiction,r.type,r.government_in_office,d.summary,d.notes].join(" ").toLowerCase();
+    var terms=state.q.toLowerCase().split(/\s+/).filter(Boolean);
+    for(var i=0;i<terms.length;i++) if(hay.indexOf(terms[i])<0) return false;
+  }
+  return true;
+}
+function sortRows(a){
+  var k=state.sort, jo=function(r){return JORD.indexOf(r.jurisdiction)};
+  return a.slice().sort(function(x,y){
+    if(k==="old") return x.date_announced<y.date_announced?-1:x.date_announced>y.date_announced?1:x.id<y.id?-1:1;
+    if(k==="jur") return jo(x)-jo(y)||(x.id<y.id?-1:1);
+    if(k==="amt") return (y.counted_in_totals?(y.amount_eur||0):-1)-(x.counted_in_totals?(x.amount_eur||0):-1)||(x.id<y.id?-1:1);
+    return x.date_announced<y.date_announced?1:x.date_announced>y.date_announced?-1:x.id<y.id?-1:1;
+  });
+}
+function promCell(r){
+  if(r.amount==null) return '<span class="muted">no amount stated</span>';
+  var s='<span>'+esc(r.amount_as_stated)+'</span>';
+  if(r.currency!=="EUR") s+='<span class="eur">≈ '+esc(fmt(r.amount_eur,"€"))+'</span>';
+  if(!r.counted_in_totals) s+='<span class="tag">not in totals: '+esc(r.not_counted_reason)+'</span>';
+  return s;
+}
+function rollOf(id){for(var i=0;i<DATA.rollup.length;i++) if(DATA.rollup[i].commitment_id===id) return DATA.rollup[i]; return null}
+function evidCell(r){
+  var d=r.delivery, ru=rollOf(r.id);
+  if(!d&&!ru) return '<span class="muted">not checked</span>';
+  if((!d||d.amount_evidenced==null)&&ru&&ru.evidenced_amount>0){
+    return '<span>'+esc(fmtOrig(ru.evidenced_amount,ru.currency))+'</span>'+(ru.currency!=="EUR"?'<span class="eur">≈ '+esc(fmt(ru.evidenced_amount_eur,"€"))+'</span>':'')+'<span class="tag" style="display:block;font-family:var(--serif);font-size:14px;color:var(--grey);font-style:italic">sum of components: '+esc(ru.contributions.map(function(c){return c.id}).join(", "))+'</span>';
+  }
+  if(!d) return '<span class="muted">not checked</span>';
+  if(d.amount_evidenced==null) return '<span class="muted">no amount stated</span>';
+  var s='<span>'+esc(fmtOrig(d.amount_evidenced,d.currency))+'</span>';
+  if(d.currency!=="EUR") s+='<span class="eur">≈ '+esc(fmt(d.amount_evidenced_eur,"€"))+'</span>';
+  return s;
+}
+function detail(r){
+  var d=r.delivery, h='<div class="dgrid"><div><h4>Promise</h4><p>'+esc(r.promised)+'</p><dl>'+
+   '<dt>Body</dt><dd>'+esc(r.body)+'</dd>'+
+   '<dt>Government</dt><dd>'+esc(r.government_in_office)+'</dd>'+
+   '<dt>Announced</dt><dd class="mono">'+esc(dateLabel(r))+'</dd>'+
+   '<dt>Type</dt><dd>'+esc(r.type)+'</dd>'+
+   '<dt>Amount</dt><dd>'+esc(r.amount_as_stated)+(r.period&&r.period!=="not stated"?' ('+esc(r.period)+')':'')+'</dd>'+
+   (r.amount!=null&&r.currency!=="EUR"?'<dt>In euros</dt><dd class="mono">'+esc(fmt(r.amount_eur,"€"))+' at '+esc(String(r.fx_rate))+' '+esc(r.currency)+' per EUR, ECB rate of '+esc(r.fx_rate_date)+'</dd>':'')+
+   '<dt>Source</dt><dd>'+link(r.source_url,"Announcement")+' <span class="muted">('+esc(r.source_tier)+')</span>'+
+   (r.more_urls||[]).map(function(u,i){return ' '+link(u,"further source "+(i+1))}).join("")+'</dd>'+
+   '<dt>In totals</dt><dd>'+(r.counted_in_totals?'yes':'no: '+esc(r.not_counted_reason))+'</dd>'+
+   '</dl>'+(r.notes?'<p class="small muted" style="margin-top:8px">'+esc(r.notes)+'</p>':'')+
+   links(r)+'</div>';
+  h+='<div><h4>Delivery evidence</h4>';
+  if(!d){ h+='<p class="muted">No delivery check has been made for this row. See gaps.md.</p>'; }
+  else{
+    h+='<p>'+shape(d.status,15)+' <b style="font-weight:500">'+esc(d.status)+'</b></p><p>'+esc(d.summary)+'</p><dl>'+
+     '<dt>Evidence type</dt><dd>'+esc(d.evidence_type)+'</dd>'+
+     '<dt>Evidence date</dt><dd class="mono">'+esc(d.evidence_date||"not dated")+'</dd>'+
+     '<dt>Checked</dt><dd class="mono">'+esc(d.date_checked)+'</dd>'+
+     (d.amount_evidenced!=null?'<dt>Amount</dt><dd>'+esc(fmtOrig(d.amount_evidenced,d.currency))+' <span class="muted">('+esc(d.amount_evidenced_basis)+')</span></dd>':'<dt>Amount</dt><dd class="muted">none stated by the source</dd>')+rollLine(r)+
+     '<dt>Source</dt><dd>'+link(d.evidence_url,"Evidence")+(d.more_urls||[]).map(function(u,i){return ' '+link(u,"further source "+(i+1))}).join("")+'</dd>'+
+     (d.see?'<dt>See</dt><dd><button class="chip" data-goto="'+esc(d.see)+'">'+esc(d.see)+'</button></dd>':'')+
+     '</dl>'+(d.notes?'<p class="small muted" style="margin-top:8px">'+esc(d.notes)+'</p>':'');
+  }
+  return h+'</div></div>';
+}
+function rollLine(r){
+  var ru=rollOf(r.id); if(!ru) return "";
+  var comp=ru.contributions.filter(function(c){return c.id!==r.id});
+  if(!comp.length) return "";
+  return '<dt>Roll-up</dt><dd>'+esc(fmtOrig(ru.evidenced_amount,ru.currency))+' from '+comp.map(function(c){return '<button class="chip" data-goto="'+esc(c.id)+'">'+esc(c.id)+'</button>'}).join("")+(ru.flags.length?' <span class="muted">'+esc(ru.flags.join(" "))+'</span>':'')+'</dd>';
+}
+function links(r){
+  var s="";
+  if(r.reannounces) s+='<p class="small">Re-announces <button class="chip" data-goto="'+esc(r.reannounces)+'">'+esc(r.reannounces)+'</button></p>';
+  if(r.reannounced_by&&r.reannounced_by.length) s+='<p class="small">Re-announced as '+r.reannounced_by.map(function(i){return '<button class="chip" data-goto="'+esc(i)+'">'+esc(i)+'</button>'}).join("")+'</p>';
+  if(r.part_of) s+='<p class="small">Part of <button class="chip" data-goto="'+esc(r.part_of)+'">'+esc(r.part_of)+'</button></p>';
+  return s;
+}
+function renderLedger(){
+  var all=sortRows(DATA.rows.filter(matches)), rows=all.slice(0,limit);
+  document.getElementById("count").innerHTML="Showing "+rows.length+" of "+all.length+" matching commitments ("+DATA.rows.length+" in the ledger)."+(isFiltered()?' <button class="reset" id="reset" type="button">Clear filters</button>':"");
+  var tb=document.getElementById("tbody");
+  if(!rows.length){ tb.innerHTML='<tr><td colspan="7" class="empty">No commitments match these filters.</td></tr>'; bindReset(); return; }
+  tb.innerHTML=rows.map(function(r){
+    var st=statusOf(r), struck=st==="withdrawn"?" struck":"";
+    return '<tr class="r'+struck+'" id="row-'+esc(r.id)+'">'+
+      '<td class="c-status" data-label="Status">'+shape(st)+'<span class="stlab">'+esc(st)+'</span></td>'+
+      '<td class="c-id mono" data-label="ID">'+esc(r.id)+'</td>'+
+      '<td class="c-date mono" data-label="Announced">'+esc(dateLabel(r))+'</td>'+
+      '<td class="c-title" data-label="Commitment"><button class="lnk" type="button" aria-expanded="false" aria-controls="d-'+esc(r.id)+'" data-toggle="'+esc(r.id)+'">'+esc(r.title)+'</button><span class="subline">'+esc(r.jurisdiction)+' · '+esc(r.body)+' · '+esc(r.type)+'</span></td>'+
+      '<td class="c-prom mono" data-label="Promised"><div class="cellv">'+promCell(r)+'</div></td>'+
+      '<td class="c-evid mono" data-label="Evidenced"><div class="cellv">'+evidCell(r)+'</div></td>'+
+      '<td class="c-src" data-label="Sources">'+link(r.source_url,"Announcement")+(r.delivery?link(r.delivery.evidence_url,"Evidence"):"")+'</td>'+
+    '</tr><tr class="detail" id="d-'+esc(r.id)+'" hidden><td colspan="7">'+detail(r)+'</td></tr>';
+  }).join("");
+  if(all.length>rows.length){
+    tb.insertAdjacentHTML("beforeend",'<tr class="more"><td colspan="7"><button type="button" class="morebtn" id="more">Show '+Math.min(PAGE,all.length-rows.length)+' more ('+(all.length-rows.length)+' remaining)</button></td></tr>');
+    document.getElementById("more").addEventListener("click",function(){limit+=PAGE;renderLedger()});
+  }
+  bindReset();
+}
+function isFiltered(){return !!(state.q||state.jur||state.type||state.status||state.year||state.tot)}
+function bindReset(){
+  var b=document.getElementById("reset"); if(!b) return;
+  b.addEventListener("click",function(){
+    state={q:"",jur:"",type:"",status:"",year:"",tot:"",sort:state.sort};limit=PAGE;
+    ["f-q","f-jur","f-type","f-status","f-year","f-tot"].forEach(function(id){document.getElementById(id).value=""});
+    renderLedger();
+  });
+}
+function toggle(id,open){
+  var d=document.getElementById("d-"+id), btn=document.querySelector('[data-toggle="'+id+'"]'); if(!d||!btn) return;
+  var show=open==null?d.hidden:open; d.hidden=!show; btn.setAttribute("aria-expanded",String(show));
+}
+function goto(id){
+  var r=byId(id); if(!r) return;
+  if(!matches(r)){
+    state={q:"",jur:"",type:"",status:"",year:"",tot:"",sort:state.sort};
+    ["f-q","f-jur","f-type","f-status","f-year","f-tot"].forEach(function(i){document.getElementById(i).value=""});
+    renderLedger();
+  }
+  if(!document.getElementById("row-"+id)){limit=DATA.rows.length;renderLedger()}
+  var row=document.getElementById("row-"+id); if(!row) return;
+  toggle(id,true);
+  row.scrollIntoView({block:"center"});
+  row.classList.add("flash");
+  setTimeout(function(){row.classList.remove("flash")},2200);
+  var b=row.querySelector("button.lnk"); if(b) b.focus({preventScroll:true});
+}
+
+/* ---------- timeline ---------- */
+function renderTimeline(){
+  var W=960,H=60+JORD.length*56,L=150,R=24,T0=Date.UTC(2023,0,1),T1=Date.UTC(2026,10,10);
+  var x=function(d){var p=d.split("-"),t=Date.UTC(+p[0],(+p[1]||1)-1,+p[2]||1);return L+(t-T0)/(T1-T0)*(W-L-R)};
+  var laneY=function(j){return 50+JORD.indexOf(j)*56+28};
+  var s='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Timeline of announcements by jurisdiction">';
+  for(var y=2023;y<=2027;y++){
+    var xx=x(y+"-01-01"); if(y===2027) continue;
+    s+='<line x1="'+xx+'" y1="30" x2="'+xx+'" y2="'+(H-8)+'" stroke="#D8D3C7"/><text x="'+(xx+4)+'" y="24">'+y+'</text>';
+    var mid=x(y+"-07-01"); s+='<line x1="'+mid+'" y1="34" x2="'+mid+'" y2="'+(H-8)+'" stroke="#E7E2D6" stroke-dasharray="2 4"/>';
+  }
+  JORD.forEach(function(j){
+    var yy=laneY(j);
+    s+='<line x1="'+L+'" y1="'+yy+'" x2="'+(W-R)+'" y2="'+yy+'" stroke="#D8D3C7"/><text class="lane" x="12" y="'+(yy+4)+'">'+esc(j)+'</text>';
+  });
+  /* cluster rows within 9 px in the same lane */
+  var pos={}, clusters=[];
+  JORD.forEach(function(j){
+    var items=DATA.rows.filter(function(r){return r.jurisdiction===j}).map(function(r){return {r:r,x:x(r.date_announced)}}).sort(function(a,b){return a.x-b.x});
+    var cur=null;
+    items.forEach(function(it){
+      if(cur&&it.x-cur.last<9){cur.items.push(it);cur.last=it.x}
+      else{cur={j:j,items:[it],last:it.x};clusters.push(cur)}
+    });
+  });
+  clusters.forEach(function(c){
+    c.x=c.items.reduce(function(a,b){return a+b.x},0)/c.items.length; c.y=laneY(c.j);
+    c.items.forEach(function(it){pos[it.r.id]=c});
+  });
+  /* arcs */
+  DATA.rows.forEach(function(r){
+    if(!r.reannounces) return;
+    var a=pos[r.reannounces], b=pos[r.id]; if(!a||!b) return;
+    var y0=a.y-10, dx=Math.abs(b.x-a.x), h=Math.min(34,14+dx/14);
+    if(a===b) return;
+    s+='<path class="arc" d="M'+a.x+' '+y0+' Q'+((a.x+b.x)/2)+' '+(y0-h*1.6)+' '+b.x+' '+(b.y-10)+'" marker-end="url(#ah)"/>'+
+       '<text x="'+((a.x+b.x)/2)+'" y="'+(y0-h*0.8-4)+'" text-anchor="middle" style="fill:#1F3F8F">'+esc(r.reannounces)+' to '+esc(r.id)+'</text>';
+  });
+  clusters.forEach(function(c,i){
+    var n=c.items.length;
+    var ids=c.items.map(function(it){return it.r.id}).join(",");
+    var anyCounted=c.items.some(function(it){return it.r.counted_in_totals});
+    var tip=c.items.map(function(it){return it.r.id+" "+it.r.date_announced+" "+it.r.title}).join("\n");
+    if(n===1){
+      s+='<g class="dot" tabindex="0" role="button" data-cl="'+i+'" aria-label="'+esc(tip)+'"><title>'+esc(tip)+'</title><circle cx="'+c.x+'" cy="'+c.y+'" r="'+(anyCounted?5.2:4.6)+'" fill="'+(anyCounted?'#141414':'#FAF8F3')+'" stroke="#141414" stroke-width="1.5"/></g>';
+    }else{
+      s+='<g class="dot" tabindex="0" role="button" data-cl="'+i+'" aria-label="'+n+' announcements: '+esc(ids)+'"><title>'+esc(tip)+'</title><circle cx="'+c.x+'" cy="'+c.y+'" r="10" fill="#FAF8F3" stroke="#141414" stroke-width="1.5"/><text class="cnt" x="'+c.x+'" y="'+(c.y+3.5)+'">'+n+'</text></g>';
+    }
+  });
+  s+='<defs><marker id="ah" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L8 4L0 8Z" fill="#1F3F8F"/></marker></defs></svg>';
+  var host=document.getElementById("tlsvg"); host.innerHTML=s;
+  window.__clusters=clusters;
+  function pick(g){
+    var c=clusters[+g.getAttribute("data-cl")], sel=document.getElementById("tlsel");
+    sel.innerHTML=c.items.map(function(it){var r=it.r;
+      return '<div>'+shape(statusOf(r),13)+' <button class="chip" data-goto="'+esc(r.id)+'">'+esc(r.id)+'</button> <span class="mono small">'+esc(dateLabel(r))+'</span> '+esc(r.title)+'</div>';
+    }).join("");
+  }
+  host.addEventListener("click",function(e){var g=e.target.closest&&e.target.closest("g.dot"); if(g) pick(g)});
+  host.addEventListener("keydown",function(e){if((e.key==="Enter"||e.key===" ")&&e.target.getAttribute&&e.target.getAttribute("data-cl")!=null){e.preventDefault();pick(e.target)}});
+
+  var pairs=DATA.rows.filter(function(r){return r.reannounces});
+  document.getElementById("linked").innerHTML=pairs.length?pairs.map(function(r){
+    var o=byId(r.reannounces);
+    return '<li>'+shape("re-announced",14)+' <button class="chip" data-goto="'+esc(r.id)+'">'+esc(r.id)+'</button> <span class="mono small">'+esc(dateLabel(r))+'</span> re-announces <button class="chip" data-goto="'+esc(o.id)+'">'+esc(o.id)+'</button> <span class="mono small">'+esc(dateLabel(o))+'</span>: '+esc(o.title)+'</li>';
+  }).join(""):"";
+
+  var all=DATA.rows.slice().sort(function(a,b){return a.date_announced<b.date_announced?-1:a.date_announced>b.date_announced?1:a.id<b.id?-1:1});
+  var yr="", out="";
+  all.forEach(function(r){
+    var y=r.date_announced.slice(0,4); if(y!==yr){yr=y;out+='<div class="tlyear">'+y+'</div>'}
+    var tag=r.reannounces?'<br><span class="small muted">re-announces <button class="chip" data-goto="'+esc(r.reannounces)+'">'+esc(r.reannounces)+'</button></span>':(r.reannounced_by.length?'<br><span class="small muted">re-announced as '+r.reannounced_by.map(function(i){return '<button class="chip" data-goto="'+esc(i)+'">'+esc(i)+'</button>'}).join("")+'</span>':"");
+    out+='<div class="tlitem"><span class="d">'+esc(dateLabel(r))+'</span>'+shape(statusOf(r),14)+'<span><button class="lnk" type="button" data-goto="'+esc(r.id)+'">'+esc(r.title)+'</button> <span class="small muted">'+esc(CODE[r.jurisdiction])+' · '+esc(r.id)+'</span>'+tag+'</span><span class="a">'+(r.amount==null?"no amount":esc(r.amount_as_stated))+'</span></div>';
+  });
+  document.getElementById("tllist").innerHTML=out;
+}
+
+/* ---------- method ---------- */
+function renderMethod(){
+  var s=DATA.stats, last=DATA.last_checked, nj=DATA.jurisdictions;
+  var ucount=nj.reduce(function(a,j){return a+j.counted_unchecked},0);
+  document.getElementById("methodbody").innerHTML=
+  '<div>'+
+  '<h3>What counts</h3>'+
+  '<p>A public AI commitment made by a government or one of its agencies between 1 January 2023 and 9 November 2026, in the United Kingdom, the European Union (Commission, EIB, EuroHPC and other bodies), France, Germany, Italy or the Netherlands. Categories: funding programmes, compute and supercomputers, AI institutes and safety bodies, AI gigafactories, skills programmes, tax incentives with a stated cost, and partnerships with AI companies where the government states a value.</p>'+
+  '<h3>What does not count</h3>'+
+  '<p>Private company investment announcements, unless the government co-funds and states its share. General digital budgets with no AI line. Party manifesto pledges.</p>'+
+  '<h3>What enters the promised bar</h3>'+
+  '<p>Each row needs a source link. An amount is only what a source states. The promised bar sums rows that are top-level, unique, publicly funded and carry a stated amount: '+s.counted+' of '+s.rows+' rows. Other rows stay in the ledger and the reason is shown on each: components of a larger programme, re-announcements, mobilisation targets that include private money, company-funded amounts, figures reported only in the press, aggregates, and lines that mix sectors. Where a row could count or not, it is left out.</p>'+
+  '<h3>Currency</h3>'+
+  '<p>The original amount and currency are kept. The euro value uses the ECB reference rate on the announcement date. When the ECB published no rate that day, the last earlier rate is used. Evidenced amounts use the rate of the commitment they count against, so promised and evidenced bars share one rate. The rates and their dates are in rates.json.</p>'+
+  '</div><div>'+
+  '<h3>How status is judged</h3>'+
+  '<p>Evidence of delivery means budget lines, grant awards, procurement notices, annual reports, audit office or court of auditors reports, parliamentary answers, or the facility operating. Status is one of the six below, and rows with no delivery check show as not checked.</p>'+
+  '<ul>'+["delivered","partly delivered","in progress","no evidence found","withdrawn","re-announced"].map(function(k){return '<li>'+shape(k,13)+' <b style="font-weight:500">'+k+'</b>: '+esc(STATUS_DEF[k])+'</li>'}).join("")+'<li>'+shape("not checked",13)+' <b style="font-weight:500">not checked</b>: '+esc(STATUS_DEF["not checked"])+'</li></ul>'+
+  '<p>Absence of evidence in the sources searched is recorded as "no evidence found". Silence in a source is never read as delivery.</p>'+
+  '<h3>Evidenced delivered</h3>'+
+  '<p>The sum of amounts that a source states for what was allocated, awarded or delivered, recorded only where one is stated. Amounts found on components of a programme count toward the programme through its part-of link. If a programme and one of its own components both carry an amount, only the programme is used. Components in separate branches are added. Nothing is capped, and a flag marks any case where the evidenced amount is above the promised amount.</p>'+
+  '<h3>Limits</h3>'+
+  '<ul><li>'+s.checked+' of '+s.rows+' rows have a delivery check; '+ucount+' of the counted rows have none yet.</li><li>Most evidence is published by the body that made the promise. Independent sources are named in each row where used.</li><li>Coverage differs by jurisdiction, because the number of sources read differs. The counts under each pair of bars show it.</li><li>The ledger records public statements and published evidence and takes no position on any government or party. Row details name the government in office on the announcement date.</li></ul>'+
+  '<h3>Last check</h3>'+
+  '<p class="mono">'+esc(last)+'. Evidence checks are point-in-time; later publications are not reflected.</p>'+
+  '</div>';
+}
+
+/* ---------- init ---------- */
+function init(d){
+  DATA=d;
+  document.getElementById("meta").innerHTML="Period "+esc(d.period.from)+" to "+esc(d.period.to)+"<br>"+d.stats.rows+" commitments, "+d.stats.counted+" counted in totals, "+d.stats.checked+" checked for delivery<br>Last evidence check "+esc(d.last_checked);
+  renderLegend(); renderBars(); initControls(); renderLedger(); renderTimeline(); renderMethod();
+  document.body.addEventListener("click",function(e){
+    var t=e.target.closest&&e.target.closest("[data-toggle]"); if(t){toggle(t.getAttribute("data-toggle"));return}
+    var g=e.target.closest&&e.target.closest("[data-goto]"); if(g){e.preventDefault();goto(g.getAttribute("data-goto"))}
+  });
+}
+fetch("data.json").then(function(r){if(!r.ok) throw new Error(r.status);return r.json()}).then(init).catch(function(err){
+  document.getElementById("meta").textContent="The data file could not be loaded ("+err.message+"). Serve this folder over HTTP so data.json can be read.";
+});
+})();
+</script>
+</body>
+</html>

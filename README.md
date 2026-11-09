@@ -4,7 +4,7 @@ A sourced public ledger of AI commitments made by governments, set against evide
 
 Jurisdictions: United Kingdom, European Union, France, Germany, Italy, Netherlands. Period: 1 January 2023 to 9 November 2026.
 
-Status: Steps 1 to 3 are done (commitments, delivery evidence, EUR values). The site is not started.
+Status: Steps 1 to 4 are done (commitments, delivery evidence, EUR values, static site). Not deployed.
 
 ## Data rules
 
@@ -29,7 +29,12 @@ Status: Steps 1 to 3 are done (commitments, delivery evidence, EUR values). The 
 | `build_commitments.py` | Merges `src/*.py`, validates, writes `commitments.json`, prints counts |
 | `build_rates.py` | Writes `rates.json` from the ECB daily history (needs `pip install CurrencyConverter`) |
 | `normalise.py` | Adds EUR values to `commitments.json` and `delivery.json` |
-| `build_all.py` | Runs all four builders in order |
+| `build_data.py` | Merges the three data files into `data.json` for the site |
+| `build_all.py` | Runs all builders in order |
+| `index.html` | The site: one static page, no backend, reads `data.json` |
+| `data.json` | Merged data read by the site |
+| `fonts/` | Cinzel, EB Garamond and IBM Plex Mono (latin subsets, SIL OFL licences), self-hosted |
+| `tests/site_check.py` | Browser check at 375px and 1440px (needs `pip install playwright` and Chrome) |
 | `build_delivery.py` | Reads `src/delivery_rows.py`, validates against `commitments.json`, writes `delivery.json` |
 | `src/` | One module per jurisdiction, with the row for each commitment |
 
@@ -38,6 +43,9 @@ Status: Steps 1 to 3 are done (commitments, delivery evidence, EUR values). The 
 ```
 pip install CurrencyConverter
 python3 build_all.py
+python3 -m http.server 8765   # then open http://localhost:8765/
 ```
+
+`index.html` loads `data.json` with `fetch`, so open it over HTTP and not from the file system.
 
 The script exits with an error if a row has no source URL, an unknown type, a broken `part_of` or `reannounces` link, an amount without a currency, a date outside the period, or a counted row that is a child or re-announcement.
