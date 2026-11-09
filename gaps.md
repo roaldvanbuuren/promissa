@@ -1,6 +1,6 @@
 # Gaps
 
-Written as the work goes. Last updated 9 November 2026 (Step 2).
+Written as the work goes. Last updated 9 November 2026 (Step 3).
 
 ## Sources that failed to load
 
@@ -65,18 +65,20 @@ Written as the work goes. Last updated 9 November 2026 (Step 2).
 
 ## Delivery I could not check yet
 
-`delivery.json` holds 27 of 63 rows. The rest were not checked. They are unchecked, which is different from "no evidence found". The site must show them as "not checked".
+`delivery.json` holds 31 of 63 rows. The rest were not checked. They are unchecked, which is different from "no evidence found". The site must show them as "not checked".
 
-| Jurisdiction | Not checked (36 rows in all) |
+| Jurisdiction | Not checked (32 rows in all) |
 |---|---|
 | United Kingdom | UK-002, UK-006, UK-007, UK-010, UK-014, UK-015, UK-018, UK-019, UK-020, UK-021, UK-022, UK-023, UK-024, UK-025, UK-026, UK-027, UK-028, UK-029, UK-030 |
-| European Union | EU-001, EU-002, EU-006, EU-007, EU-008, EU-010, EU-011, EU-012, EU-014 |
+| European Union | EU-001, EU-002, EU-007, EU-008, EU-014 |
 | France | FR-004, FR-005, FR-006 |
 | Germany | DE-002, DE-006 |
 | Italy | IT-002 |
 | Netherlands | NL-002, NL-003 |
 
-Reasons: most UK rows are October 2026 Budget items or 2025 and 2026 small programmes where no outturn data would exist yet; EU-006, EU-010, EU-011 and EU-012 were not searched; FR-005 and NL-002 were researched but the pages I wanted to cite could not be loaded or their addresses could not be confirmed, so I did not cite them (FR-005: info.gouv.fr page failed to load; NL-002: the rijksoverheid.nl address was truncated in my notes and the AiNed amount was not read).
+Reasons: most UK rows are October 2026 Budget items or 2025 and 2026 small programmes where no outturn data would exist yet. FR-005 and NL-002 were researched, but the page for FR-005 (info.gouv.fr) failed to load and the address for NL-002 could not be confirmed, so neither is cited. Several of the unchecked rows have no amount (FR-004, NL-003, DE-002) or are not counted (DE-006, UK-007, EU-007, EU-008).
+
+Germany: the Bundestag Finance Plan 2025 to 2029 (Drucksache 21/0600) appears to contain a sentence on about €750 million for AI and intelligent software systems in the research ministry's plan. The document is too long for the fetch tool to reach that section, so the figure and its period are unconfirmed and not used. The federal budget 2026 plan for the research ministry (Einzelplan 30) was found but its AI lines were not extracted.
 
 ## Delivery evidence caveats
 
@@ -94,6 +96,20 @@ Reasons: most UK rows are October 2026 Budget items or 2025 and 2026 small progr
 | IT-001 | The CDP figure (over €300 million) is self-reported by the investor. A communiqué with €313 million could not be loaded |
 | NL-001 | The SURF page states no budget, so no amount is recorded, although the €13.5 million award is in the commitment row |
 | NL-004 | EU award about €71.7 million (Cabinet letter) against €70 million in some SURF material; the Cabinet's own share cannot be separated from the €130.9 million national and regional total |
+
+| EU-006 | Selection and the Commission's April 2026 statement that antennas provide regional access; no contract values or operating service confirmed. Status "partly delivered" rests on that statement |
+| EU-010 | €1 billion is earmarked for calls, not awarded. Call budgets seen (€221.8 million, €85.5 million, €63.2 million, €9 million) overlap with other EU rows and are not summed |
+| EU-011, EU-012 | Calls closed on 21 April 2026 and no award results were found. Sources give the AI in Science call as €90 million and the RAISE package as €100 million, against €107 million (launch release) and €108 million (strategy). The €600 million for compute is not matched to a budget line |
+| UK-001 | Roll-up evidences £975 million (Edinburgh £750 million plus Isambard-AI £225 million) against about £900 million promised. The two amounts come from different sources and bases. The Edinburgh money is also inside the £2 billion in UK-011 but is attributed only to UK-001 |
+
+## Currency conversion (Step 3)
+
+| Issue | Treatment |
+|---|---|
+| ECB data API and download files are not reachable from the build environment (the API refuses automated fetches) | ECB daily reference rates are read from the history bundled in the Python package CurrencyConverter 0.18.23 (data to 30 October 2026). One date was checked against the ECB's published table (15 March 2023, 0.87243). The other ten dates are unchecked against the ECB site. Confidence the package matches the ECB file: high; independently verified: one date |
+| Three announcement dates have no ECB rate (29 October 2023 Sunday, 1 January 2025 holiday, 24 October 2026 Saturday) | The last earlier published rate is used and recorded in `rates.json` |
+| UK-014 and UK-015 have year-only precision, placed on 1 January 2025 | Their EUR values use the rate of 31 December 2024 and are indicative |
+| Evidenced amounts and rate dates | Converted at the announcement-date rate of the commitment they count against, so promised and evidenced amounts share a rate. Comparing them with a later rate would give different numbers |
 
 ## Judgement calls for review
 

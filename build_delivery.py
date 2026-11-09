@@ -41,12 +41,51 @@ for r in rows:
 if errors:
     print("VALIDATION FAILED"); [print(" -", e) for e in errors]; sys.exit(1)
 
+
+# ---- roll-up rule ----
+# Evidence amounts are recorded on the row where the source states them. For the per-jurisdiction bar they are
+# attributed to the nearest counted ancestor (following part_of), so child evidence (a facility inside a
+# programme) is not lost. Rules: re-announced rows carry no amount; if a counted row and its own descendant both
+# carry an amount, only the shallower one is used (assumed to overlap); siblings in different branches are added.
+# Rows whose chain never reaches a counted row are reported as outside_totals and are not in any bar.
+def chain(i):
+    out = [i]
+    while com[out[-1]]["part_of"]:
+        out.append(com[out[-1]]["part_of"])
+    return out
+amt = {r["id"]: r for r in rows if r["amount_evidenced"] is not None}
+rollup = {}
+outside = []
+for i, r in amt.items():
+    ch = chain(i)
+    top = next((c for c in ch if com[c]["counted_in_totals"]), None)
+    if top is None:
+        outside.append({"id": i, "amount": r["amount_evidenced"], "currency": r["currency"]}); continue
+    # drop if a shallower row on the path (between i and top inclusive, excluding i) already has an amount
+    shallower = [c for c in ch[1:ch.index(top) + 1] if c in amt]
+    entry = rollup.setdefault(top, {"commitment_id": top, "jurisdiction": com[top]["jurisdiction"],
+                                    "promised_amount": com[top]["amount"], "currency": com[top]["currency"],
+                                    "evidenced_amount": 0, "contributions": [], "dropped_overlap": [], "flags": []})
+    if shallower:
+        entry["dropped_overlap"].append({"id": i, "amount": r["amount_evidenced"], "overlaps_with": shallower[0]}); continue
+    if r["currency"] != entry["currency"]:
+        entry["flags"].append(f"{i}: currency differs"); continue
+    entry["evidenced_amount"] += r["amount_evidenced"]
+    entry["contributions"].append({"id": i, "amount": r["amount_evidenced"], "via": "self" if i == top else "descendant"})
+for e in rollup.values():
+    if e["promised_amount"] and e["evidenced_amount"] > e["promised_amount"]:
+        e["flags"].append("evidenced amount exceeds the promised amount (different bases; see the contributing rows)")
+rollup = sorted(rollup.values(), key=lambda e: e["commitment_id"])
+
 order = {"United Kingdom": 0, "European Union": 1, "France": 2, "Germany": 3, "Italy": 4, "Netherlands": 5}
 rows = sorted(rows, key=lambda r: (order[com[r["id"]]["jurisdiction"]], r["id"]))
 out = {
     "project": "Promissa", "file": "delivery", "checked": "2026-11-09",
     "note": "Only commitments listed here were checked. 'no evidence found' means the named sources were searched and nothing was found; it does not mean not delivered. Rows missing from this file were not checked (see gaps.md). Amounts are only what a source states and are often budgets or allocations, not spending.",
     "statuses": STATUSES,
+    "rollup_rule": "Evidence amounts are attributed to the nearest counted ancestor via part_of. If a row and its own ancestor both carry an amount, only the shallower is used. Siblings in different branches are added. Re-announced rows carry no amount. Nothing is capped or altered; flags mark where evidenced exceeds promised.",
+    "rollup": rollup,
+    "outside_totals": outside,
     "rows": rows,
 }
 with open("delivery.json", "w", encoding="utf-8") as f:
@@ -60,10 +99,9 @@ for j in order:
     cc = [c for c in cs if c["counted_in_totals"]]
     chk = [c for c in cc if c["id"] in seen]
     ev = collections.defaultdict(float)
-    for r in rows:
-        c = com[r["id"]]
-        if c["jurisdiction"] == j and c["counted_in_totals"] and r["amount_evidenced"] is not None:
-            ev[r["currency"]] += r["amount_evidenced"]
+    for e in rollup:
+        if e["jurisdiction"] == j:
+            ev[e["currency"]] += e["evidenced_amount"]
     s = "  ".join(f"{k} {v/1e6:,.1f}m" for k, v in ev.items()) or "-"
     print(f"{j:16} {len(cs):11d} {len(cc):8d} {len(chk):16d} {len(cc)-len(chk):18d} {s:>26}")
 print("unchecked counted rows:", sorted(c["id"] for c in com.values() if c["counted_in_totals"] and c["id"] not in seen))

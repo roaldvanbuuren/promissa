@@ -31,7 +31,10 @@
       "notes": "Umbrella for the Edinburgh exascale system (UK-003) and the AI Research Resource (UK-004). Subject to business case process.",
       "more_urls": [
         "https://www.gov.uk/government/news/government-commits-up-to-35-billion-to-future-of-tech-and-science"
-      ]
+      ],
+      "amount_eur": 1031601389,
+      "fx_rate": 0.87243,
+      "fx_rate_date": "2023-03-15"
     },
     {
       "id": "UK-002",
@@ -56,7 +59,10 @@
       "notes": "Announced as additional to UK-001. Renamed Frontier AI Taskforce in 2023; AI Safety Institute followed.",
       "more_urls": [
         "https://www.gov.uk/government/news/industry-and-national-security-heavyweights-to-power-uks-frontier-ai-taskforce"
-      ]
+      ],
+      "amount_eur": 113041611,
+      "fx_rate": 0.88463,
+      "fx_rate_date": "2023-04-24"
     },
     {
       "id": "UK-003",
@@ -79,7 +85,10 @@
       "part_of": "UK-001",
       "reannounces": null,
       "notes": "Official page gives no Edinburgh-specific amount. Press (Computer Weekly, UKTN, TechRepublic) later reported £800 million; not used as the amount here.",
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null
     },
     {
       "id": "UK-004",
@@ -104,7 +113,10 @@
       "notes": "Relationship to the £900 million umbrella is disputed in sources (one reports AIRR 'tripled from £100m to £300m'); see gaps.md. Not added to totals.",
       "more_urls": [
         "https://silicon.co.uk/cloud/server/ai-safety-summit-2023-uk-to-invest-225m-for-ai-supercomputer-537233"
-      ]
+      ],
+      "amount_eur": 345045719,
+      "fx_rate": 0.86945,
+      "fx_rate_date": "2023-11-01"
     },
     {
       "id": "UK-005",
@@ -129,7 +141,10 @@
       "notes": null,
       "more_urls": [
         "https://www.cnbc.com/2023/11/01/uk-to-invest-273-million-in-turing-ai-supercomputer.html"
-      ]
+      ],
+      "amount_eur": 258784289,
+      "fx_rate": 0.86945,
+      "fx_rate_date": "2023-11-01"
     },
     {
       "id": "UK-006",
@@ -152,7 +167,10 @@
       "part_of": null,
       "reannounces": null,
       "notes": null,
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": 114912150,
+      "fx_rate": 0.87023,
+      "fx_rate_date": "2023-10-27"
     },
     {
       "id": "UK-007",
@@ -177,7 +195,10 @@
       "notes": "Press-reported only; primary Autumn Statement text not retrieved. Reported as shelved in August 2024. See gaps.md.",
       "more_urls": [
         "https://www.techrepublic.com/article/uk-government-ai-funding-scrapped/"
-      ]
+      ],
+      "amount_eur": 574514535,
+      "fx_rate": 0.8703,
+      "fx_rate_date": "2023-11-22"
     },
     {
       "id": "UK-008",
@@ -200,7 +221,10 @@
       "part_of": null,
       "reannounces": null,
       "notes": null,
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": 221984805,
+      "fx_rate": 0.8424,
+      "fx_rate_date": "2025-06-09"
     },
     {
       "id": "UK-009",
@@ -223,7 +247,10 @@
       "part_of": null,
       "reannounces": null,
       "notes": null,
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null
     },
     {
       "id": "UK-010",
@@ -248,7 +275,10 @@
       "notes": "Announced by the Prime Minister at London Tech Week; amount as restated in the Compute Roadmap (17 Jul 2025).",
       "more_urls": [
         "https://www.computerweekly.com/news/366625856/UK-government-recommits-to-Edinburgh-supercomputer-plan-with-750m-funding-pledge"
-      ]
+      ],
+      "amount_eur": 1187084520,
+      "fx_rate": 0.8424,
+      "fx_rate_date": "2025-06-09"
     },
     {
       "id": "UK-011",
@@ -271,7 +301,10 @@
       "part_of": null,
       "reannounces": null,
       "notes": "Roadmap states its £1bn, £750m and milestone figures overlap and must not be added.",
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": 2313743637,
+      "fx_rate": 0.8644,
+      "fx_rate_date": "2025-07-17"
     },
     {
       "id": "UK-012",
@@ -294,7 +327,10 @@
       "part_of": "UK-011",
       "reannounces": "UK-003",
       "notes": "Revives the Edinburgh exascale project shelved in August 2024. Treated as a re-announcement of UK-003 (judgement call; see README).",
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": 884851345,
+      "fx_rate": 0.8476,
+      "fx_rate_date": "2025-06-11"
     },
     {
       "id": "UK-013",
@@ -319,7 +355,10 @@
       "notes": "Unit first announced in the AI Opportunities Action Plan; the £500m figure is tied to the Spending Review in the Roadmap.",
       "more_urls": [
         "https://www.gov.uk/government/publications/ai-opportunities-action-plan-one-year-on/ai-opportunities-action-plan-one-year-on"
-      ]
+      ],
+      "amount_eur": 589900897,
+      "fx_rate": 0.8476,
+      "fx_rate_date": "2025-06-11"
     },
     {
       "id": "UK-014",
@@ -342,7 +381,10 @@
       "part_of": null,
       "reannounces": null,
       "notes": "Year-level date only on the cited page.",
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": 18090161,
+      "fx_rate": 0.82918,
+      "fx_rate_date": "2024-12-31"
     },
     {
       "id": "UK-015",
@@ -365,7 +407,10 @@
       "part_of": null,
       "reannounces": null,
       "notes": null,
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": 9648086,
+      "fx_rate": 0.82918,
+      "fx_rate_date": "2024-12-31"
     },
     {
       "id": "UK-016",
@@ -388,7 +433,10 @@
       "part_of": "UK-011",
       "reannounces": null,
       "notes": null,
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": 41498559,
+      "fx_rate": 0.8675,
+      "fx_rate_date": "2026-01-26"
     },
     {
       "id": "UK-017",
@@ -411,7 +459,10 @@
       "part_of": null,
       "reannounces": null,
       "notes": null,
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": 143321231,
+      "fx_rate": 0.83728,
+      "fx_rate_date": "2026-10-23"
     },
     {
       "id": "UK-018",
@@ -434,7 +485,10 @@
       "part_of": null,
       "reannounces": null,
       "notes": null,
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": 197066692,
+      "fx_rate": 0.83728,
+      "fx_rate_date": "2026-10-23"
     },
     {
       "id": "UK-019",
@@ -459,7 +513,10 @@
       "notes": null,
       "more_urls": [
         "https://www.gov.uk/government/news/introducing-the-ai-biosecurity-lab"
-      ]
+      ],
+      "amount_eur": 119434359,
+      "fx_rate": 0.83728,
+      "fx_rate_date": "2026-10-23"
     },
     {
       "id": "UK-020",
@@ -482,7 +539,10 @@
       "part_of": "UK-019",
       "reannounces": null,
       "notes": "Value stated by government; funded by the companies, so not counted as government spending.",
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": 238868718,
+      "fx_rate": 0.83728,
+      "fx_rate_date": "2026-10-23"
     },
     {
       "id": "UK-021",
@@ -505,7 +565,10 @@
       "part_of": null,
       "reannounces": null,
       "notes": null,
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": 71660615,
+      "fx_rate": 0.83728,
+      "fx_rate_date": "2026-10-23"
     },
     {
       "id": "UK-022",
@@ -528,7 +591,10 @@
       "part_of": null,
       "reannounces": null,
       "notes": null,
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": 83604051,
+      "fx_rate": 0.83728,
+      "fx_rate_date": "2026-10-23"
     },
     {
       "id": "UK-023",
@@ -551,7 +617,10 @@
       "part_of": null,
       "reannounces": null,
       "notes": null,
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": 71660615,
+      "fx_rate": 0.83728,
+      "fx_rate_date": "2026-10-23"
     },
     {
       "id": "UK-024",
@@ -574,7 +643,10 @@
       "part_of": null,
       "reannounces": null,
       "notes": null,
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": 71660615,
+      "fx_rate": 0.83728,
+      "fx_rate_date": "2026-10-23"
     },
     {
       "id": "UK-025",
@@ -597,7 +669,10 @@
       "part_of": null,
       "reannounces": null,
       "notes": null,
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": 21498185,
+      "fx_rate": 0.83728,
+      "fx_rate_date": "2026-10-23"
     },
     {
       "id": "UK-026",
@@ -620,7 +695,10 @@
       "part_of": null,
       "reannounces": null,
       "notes": null,
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": 17915154,
+      "fx_rate": 0.83728,
+      "fx_rate_date": "2026-10-23"
     },
     {
       "id": "UK-027",
@@ -643,7 +721,10 @@
       "part_of": null,
       "reannounces": null,
       "notes": null,
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": 27469903,
+      "fx_rate": 0.83728,
+      "fx_rate_date": "2026-10-23"
     },
     {
       "id": "UK-028",
@@ -666,7 +747,10 @@
       "part_of": null,
       "reannounces": null,
       "notes": null,
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": 35830308,
+      "fx_rate": 0.83728,
+      "fx_rate_date": "2026-10-23"
     },
     {
       "id": "UK-029",
@@ -689,7 +773,10 @@
       "part_of": null,
       "reannounces": null,
       "notes": null,
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": 11943436,
+      "fx_rate": 0.83728,
+      "fx_rate_date": "2026-10-23"
     },
     {
       "id": "UK-030",
@@ -714,7 +801,10 @@
       "notes": "Total of £10 million is 10 x the stated annual £1 million (derived, not separately stated).",
       "more_urls": [
         "https://www.gov.uk/government/publications/spring-budget-2023/spring-budget-2023-html"
-      ]
+      ],
+      "amount_eur": 11462238,
+      "fx_rate": 0.87243,
+      "fx_rate_date": "2023-03-15"
     },
     {
       "id": "EU-001",
@@ -739,7 +829,10 @@
       "notes": "A target to mobilise public and private capital, not a stated public commitment. Commission funding comes from existing programmes (Digital Europe, Horizon Europe, InvestEU). Excluded from the promised total.",
       "more_urls": [
         "https://ec.europa.eu/commission/presscorner/detail/en/ip_25_467"
-      ]
+      ],
+      "amount_eur": 200000000000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2025-02-11"
     },
     {
       "id": "EU-002",
@@ -764,7 +857,10 @@
       "notes": "Press release says four gigafactories; the April 2025 AI Continent Action Plan says up to five; the July 2026 call says up to seven.",
       "more_urls": [
         "https://commission.europa.eu/topics/competitiveness/competitiveness-coordination-tool-projects/ai-gigafactories_en"
-      ]
+      ],
+      "amount_eur": 20000000000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2025-02-11"
     },
     {
       "id": "EU-003",
@@ -787,7 +883,10 @@
       "part_of": null,
       "reannounces": null,
       "notes": null,
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": 1500000000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2024-12-10"
     },
     {
       "id": "EU-004",
@@ -812,7 +911,10 @@
       "notes": "Selection date of 12 March 2025 taken from Commission press release IP/25/1013.",
       "more_urls": [
         "https://ec.europa.eu/commission/presscorner/api/files/document/print/en/ip_25_1013/IP_25_1013_EN.pdf"
-      ]
+      ],
+      "amount_eur": 485000000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2025-03-12"
     },
     {
       "id": "EU-005",
@@ -835,7 +937,10 @@
       "part_of": null,
       "reannounces": null,
       "notes": "Amount is a floor ('over'). Exact day not shown on the page retrieved.",
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": 500000000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2025-10"
     },
     {
       "id": "EU-006",
@@ -858,7 +963,10 @@
       "part_of": null,
       "reannounces": null,
       "notes": null,
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": 55000000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2025-10-13"
     },
     {
       "id": "EU-007",
@@ -881,7 +989,10 @@
       "part_of": null,
       "reannounces": null,
       "notes": "Aggregate of EU-003 to EU-006; not added again.",
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": 2600000000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2025-10"
     },
     {
       "id": "EU-008",
@@ -906,7 +1017,10 @@
       "notes": "Later Commission pages describe €10 billion as total EuroHPC supercomputing plus AI Factories investment for 2021-2027, so it is not an AI-only figure. See gaps.md.",
       "more_urls": [
         "https://digital-strategy.ec.europa.eu/en/policies/ai-factories"
-      ]
+      ],
+      "amount_eur": 10000000000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2025-02-11"
     },
     {
       "id": "EU-009",
@@ -931,7 +1045,10 @@
       "notes": "Call page says only part is covered by the current budget framework and 'the bulk' comes from the next MFF (2028-2035), which is not yet adopted. Implements EU-002; the EU share is up to €100m + €400m per project (lot 1, four projects) and €200m + €800m (lot 2, three projects).",
       "more_urls": [
         "https://www.eurohpc-ju.europa.eu/eurohpc-joint-undertaking-launches-ai-gigafactories-call-2026-07-30_en"
-      ]
+      ],
+      "amount_eur": 10000000000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2026-07-30"
     },
     {
       "id": "EU-010",
@@ -954,7 +1071,10 @@
       "part_of": null,
       "reannounces": null,
       "notes": "Drawn from existing programmes, so partly overlaps with other lines.",
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": 1000000000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2025-10-08"
     },
     {
       "id": "EU-011",
@@ -977,7 +1097,10 @@
       "part_of": null,
       "reannounces": null,
       "notes": "Republication of the Commission press release. Possible overlap with EU-012 not resolved; see gaps.md.",
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": 600000000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2025-10-08"
     },
     {
       "id": "EU-012",
@@ -1000,7 +1123,10 @@
       "part_of": null,
       "reannounces": null,
       "notes": "The strategy document COM(2025) 724 says €108 million; the launch press release says €107 million. See gaps.md.",
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": 107000000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2025-11-03"
     },
     {
       "id": "EU-013",
@@ -1026,7 +1152,10 @@
       "more_urls": [
         "https://www.eurohpc-ju.europa.eu/contract-signed-alice-recoque-europes-new-exascale-supercomputer-2025-11-18_en",
         "https://www.genci.fr/actualites/press-release-signature-hosting-agreement-second-european-exascale-supercomputer-alice"
-      ]
+      ],
+      "amount_eur": 354800000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2024-09-09"
     },
     {
       "id": "EU-014",
@@ -1049,7 +1178,10 @@
       "part_of": "EU-002",
       "reannounces": null,
       "notes": "Memorandum of understanding. The source states no amount.",
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null
     },
     {
       "id": "FR-001",
@@ -1072,7 +1204,10 @@
       "part_of": null,
       "reannounces": null,
       "notes": "Announced at VivaTech 2023. Nine winners and €360 million awarded on 21 May 2024 (see delivery.json, not repeated here).",
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": 500000000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2023-06-16"
     },
     {
       "id": "FR-002",
@@ -1095,7 +1230,10 @@
       "part_of": null,
       "reannounces": null,
       "notes": null,
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": 40000000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2023-06-16"
     },
     {
       "id": "FR-003",
@@ -1120,7 +1258,10 @@
       "notes": "The press release gives no amount. GENCI's 2024 annual report says the Jean Zay extension was financed by France 2030 in response to a presidential announcement of 'May 2023', which differs from the 16 June 2023 date of the press release. See gaps.md.",
       "more_urls": [
         "https://www.genci.fr/sites/default/files/brique/fichier/12-2025/VF%20GENCI-RA2024_EN_BD5%20dble.pdf"
-      ]
+      ],
+      "amount_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null
     },
     {
       "id": "FR-004",
@@ -1143,7 +1284,10 @@
       "part_of": null,
       "reannounces": null,
       "notes": "The release states no amount for the call.",
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null
     },
     {
       "id": "FR-005",
@@ -1169,7 +1313,10 @@
       "more_urls": [
         "https://www.enseignementsup-recherche.gouv.fr/fr/france-2030-l-ia-comme-un-accelerateur-et-un-differentiateur-d-innovation-96213",
         "https://www.economie.gouv.fr/actualites/strategie-nationale-intelligence-artificielle"
-      ]
+      ],
+      "amount_eur": 2500000000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2024-05-21"
     },
     {
       "id": "FR-006",
@@ -1192,7 +1339,10 @@
       "part_of": null,
       "reannounces": null,
       "notes": "The source states the headline figure without a public and private split. Treated as a mobilisation figure and kept out of the promised total until a breakdown of the public share is found. See gaps.md.",
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": 109000000000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2025-02"
     },
     {
       "id": "DE-001",
@@ -1217,7 +1367,10 @@
       "notes": "Presented on 23 August 2023; the full plan was published on 7 November 2023. The BMFTR AI pages (successor ministry) repeat the same sentence for 'the current legislative period' without a date; see gaps.md.",
       "more_urls": [
         "https://www.bmftr.bund.de/SharedDocs/Pressemitteilungen/DE/2023/11/071123-KI-Aktionsplan.html"
-      ]
+      ],
+      "amount_eur": 1600000000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2023-08-23"
     },
     {
       "id": "DE-002",
@@ -1242,7 +1395,10 @@
       "notes": "The Federal Research Ministry later states at least €18 billion for the whole agenda across all six technologies. No AI share is given, so no amount is recorded here.",
       "more_urls": [
         "https://www.bmftr.bund.de/SharedDocs/Kurzmeldungen/DE/2025/09/260925-haushalt-26-1-lesung.html"
-      ]
+      ],
+      "amount_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null
     },
     {
       "id": "DE-003",
@@ -1267,7 +1423,10 @@
       "notes": "Cabinet decision date of 18 March 2026 taken from the Federal Government FAQ. The strategy document is dated March 2026 and states targets, not amounts.",
       "more_urls": [
         "https://bmds.bund.de/fileadmin/BMDS/Dokumente/Publikationen/260312_BMDS_Template-RZ-Strategie_V2_barrierefrei_final.pdf"
-      ]
+      ],
+      "amount_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null
     },
     {
       "id": "DE-004",
@@ -1292,7 +1451,10 @@
       "notes": "Measure 1 of the strategy. The document describes the gigafactory as a primarily commercial project and states no federal amount. The EU call opened at the end of July 2026 (see EU-009).",
       "more_urls": [
         "https://www.bmftr.bund.de/SharedDocs/Kurzmeldungen/DE/2026/07/300726-ai-gigafactories.html"
-      ]
+      ],
+      "amount_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null
     },
     {
       "id": "DE-005",
@@ -1317,7 +1479,10 @@
       "notes": "Date is that of the press release, the first dated source found; the page does not give a decision date or the budget line.",
       "more_urls": [
         "https://www.bundesregierung.de/breg-de/aktuelles/faq-kuenstliche-intelligenz-2458970"
-      ]
+      ],
+      "amount_eur": 30700000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2026-09-18"
     },
     {
       "id": "DE-006",
@@ -1340,7 +1505,10 @@
       "part_of": null,
       "reannounces": null,
       "notes": "The figure covers cloud, AI and data infrastructure together with no AI split, so it fails the AI-line test and is not added to the promised total. Date is that of the press release; the page gives no first-announcement date. A 2021 federal report also mentions up to €3 billion for two IPCEI, so the money may predate this statement. See gaps.md.",
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": 3000000000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2026-09-18"
     },
     {
       "id": "IT-001",
@@ -1365,7 +1533,10 @@
       "notes": "CDP Venture Capital is a state-controlled investment company, so the source tier is 'institution', not a ministry. The Prime Minister thanked CDP for the €1 billion in an undated video message (governo.it page could not be loaded; see gaps.md). A later CDP release describes the same €1 billion as a €500 million AI fund plus €500 million of co-investments, a different split.",
       "more_urls": [
         "https://www.cdpventurecapital.it/en/news.page?contentId=COM36210"
-      ]
+      ],
+      "amount_eur": 1000000000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2024-04-08"
     },
     {
       "id": "IT-002",
@@ -1388,7 +1559,10 @@
       "part_of": "IT-001",
       "reannounces": null,
       "notes": "The memorandum states no value of its own; the €1 billion belongs to IT-001.",
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null
     },
     {
       "id": "IT-003",
@@ -1411,7 +1585,10 @@
       "part_of": null,
       "reannounces": "IT-001",
       "notes": "Legislative authorisation of the same €1 billion. The source does not say whether it is new money; a later Council of Ministers communiqué describes it as a share of the venture capital support fund's resources. Final Senate vote on 17 September 2025 is inferred from the word 'yesterday' in an article dated 18 September 2025.",
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": 1000000000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2025-09-17"
     },
     {
       "id": "NL-001",
@@ -1436,7 +1613,10 @@
       "notes": "Amount from the Cabinet's January 2024 vision. The date of 2 November 2023 is from the Digital Economy Strategy progress report of March 2025.",
       "more_urls": [
         "https://www.tweedekamer.nl/downloads/document?id=2025D10009"
-      ]
+      ],
+      "amount_eur": 13500000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2023-11-02"
     },
     {
       "id": "NL-002",
@@ -1462,7 +1642,10 @@
       "more_urls": [
         "https://www.tweedekamer.nl/downloads/document?id=2024D27504",
         "https://rijksoverheid.nl/ministeries/ministerie-van-economische-zaken/nieuws/2024/07/12/groen-licht-voor-vervolg-vijf-lopende-projecten-nationaal-groeifonds"
-      ]
+      ],
+      "amount_eur": 204500000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2024-01-18"
     },
     {
       "id": "NL-003",
@@ -1485,7 +1668,10 @@
       "part_of": null,
       "reannounces": null,
       "notes": "The page announces the team without an amount.",
-      "more_urls": []
+      "more_urls": [],
+      "amount_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null
     },
     {
       "id": "NL-004",
@@ -1511,7 +1697,10 @@
       "more_urls": [
         "https://www.rijksoverheid.nl/actueel/nieuws/2025/06/27/defensie-investeert-in-ai-fabriek-in-groningen",
         "https://open.overheid.nl/documenten/21889b96-6b05-4dd2-847b-0a6457522b11/file"
-      ]
+      ],
+      "amount_eur": 70000000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2025-06-27"
     }
   ]
 }

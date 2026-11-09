@@ -1,0 +1,141 @@
+{
+  "project": "Promissa",
+  "file": "rates",
+  "base_currency": "EUR",
+  "quote_convention": "units of the currency per 1 EUR, as published by the ECB (five decimals). EUR value = original amount divided by this rate.",
+  "source": "ECB euro foreign exchange reference rates (EXR.D.<CCY>.EUR.SP00.A), daily, set around 14:15 CET and published around 16:00 CET",
+  "how_read": "From the ECB daily history bundled in the Python package CurrencyConverter 0.18.23 (data runs 1999-01-04 to 2026-10-30). The ECB's own download and data API were not reachable from the build environment.",
+  "verification": "One date was checked against the ECB's published GBP table for March 2023: 15 March 2023 = 0.87243, equal to the bundled value. Other dates are not independently checked.",
+  "rule": "The rate on the announcement date. If the ECB published none that day (weekend or TARGET closing day), the last earlier published rate is used and prior_business_day_used is true. Amounts stated in EUR are not converted.",
+  "delivery_rule": "An evidenced amount is converted at the rate of the announcement date of the commitment it counts against (the nearest counted ancestor), so promised and evidenced amounts share one rate. Evidenced amounts on rows that count against no commitment use their own commitment's date.",
+  "caveat": "Dates with year-only precision (UK-014, UK-015: 1 January 2025) use the rate of the last published day before, so those two EUR values are indicative.",
+  "rates": [
+    {
+      "currency": "GBP",
+      "announcement_date": "2023-03-15",
+      "rate_date_used": "2023-03-15",
+      "prior_business_day_used": false,
+      "units_per_eur": 0.87243,
+      "used_by": [
+        "UK-001",
+        "UK-030"
+      ]
+    },
+    {
+      "currency": "GBP",
+      "announcement_date": "2023-04-24",
+      "rate_date_used": "2023-04-24",
+      "prior_business_day_used": false,
+      "units_per_eur": 0.88463,
+      "used_by": [
+        "UK-002"
+      ]
+    },
+    {
+      "currency": "GBP",
+      "announcement_date": "2023-10-29",
+      "rate_date_used": "2023-10-27",
+      "prior_business_day_used": true,
+      "units_per_eur": 0.87023,
+      "used_by": [
+        "UK-006"
+      ]
+    },
+    {
+      "currency": "GBP",
+      "announcement_date": "2023-11-01",
+      "rate_date_used": "2023-11-01",
+      "prior_business_day_used": false,
+      "units_per_eur": 0.86945,
+      "used_by": [
+        "UK-004",
+        "UK-005"
+      ]
+    },
+    {
+      "currency": "GBP",
+      "announcement_date": "2023-11-22",
+      "rate_date_used": "2023-11-22",
+      "prior_business_day_used": false,
+      "units_per_eur": 0.8703,
+      "used_by": [
+        "UK-007"
+      ]
+    },
+    {
+      "currency": "GBP",
+      "announcement_date": "2025-01-01",
+      "rate_date_used": "2024-12-31",
+      "prior_business_day_used": true,
+      "units_per_eur": 0.82918,
+      "used_by": [
+        "UK-014",
+        "UK-015"
+      ]
+    },
+    {
+      "currency": "GBP",
+      "announcement_date": "2025-06-09",
+      "rate_date_used": "2025-06-09",
+      "prior_business_day_used": false,
+      "units_per_eur": 0.8424,
+      "used_by": [
+        "UK-008",
+        "UK-010"
+      ]
+    },
+    {
+      "currency": "GBP",
+      "announcement_date": "2025-06-11",
+      "rate_date_used": "2025-06-11",
+      "prior_business_day_used": false,
+      "units_per_eur": 0.8476,
+      "used_by": [
+        "UK-012",
+        "UK-013"
+      ]
+    },
+    {
+      "currency": "GBP",
+      "announcement_date": "2025-07-17",
+      "rate_date_used": "2025-07-17",
+      "prior_business_day_used": false,
+      "units_per_eur": 0.8644,
+      "used_by": [
+        "UK-011"
+      ]
+    },
+    {
+      "currency": "GBP",
+      "announcement_date": "2026-01-26",
+      "rate_date_used": "2026-01-26",
+      "prior_business_day_used": false,
+      "units_per_eur": 0.8675,
+      "used_by": [
+        "UK-016"
+      ]
+    },
+    {
+      "currency": "GBP",
+      "announcement_date": "2026-10-24",
+      "rate_date_used": "2026-10-23",
+      "prior_business_day_used": true,
+      "units_per_eur": 0.83728,
+      "used_by": [
+        "UK-017",
+        "UK-018",
+        "UK-019",
+        "UK-020",
+        "UK-021",
+        "UK-022",
+        "UK-023",
+        "UK-024",
+        "UK-025",
+        "UK-026",
+        "UK-027",
+        "UK-028",
+        "UK-029"
+      ]
+    }
+  ]
+}

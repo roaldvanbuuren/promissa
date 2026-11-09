@@ -153,3 +153,30 @@ d("UK-009", "in progress", "progress report by the announcing body",
   "The one-year report states that over one million free AI courses have been delivered; the count is of courses, not of people trained, so it cannot be compared with the target of 7.5 million workers.",
   OYO, "2026-01-29",
   notes="No amount is stated for this commitment.")
+
+# ---------------- added after third pass (EU rows) ----------------
+MILESTONES = "https://digital-strategy.ec.europa.eu/en/news/ai-continent-action-plan-delivers-major-milestones"
+HADEA_RAISE = "https://hadea.ec.europa.eu/calls-proposals/thematic-networks-excellence-ai-science_en"
+d("EU-006", "partly delivered", "progress report by the announcing body",
+  "EuroHPC selected 13 AI Factory Antennas on 13 October 2025 with about €55 million of EU funding, and the Commission's April 2026 progress release says the antennas are providing regional access; no contract or grant-agreement values were read.",
+  "https://www.eurohpc-ju.europa.eu/eurohpc-ju-selects-ai-factory-antennas-broaden-ai-factories-initiative-2025-10-13_en", "2025-10-13",
+  more=[MILESTONES],
+  notes="The selection page describes the antennas as newly selected, with a memorandum of understanding with their linked AI Factories due by mid-2026. The statement that access is being provided is the Commission's own and was not confirmed against an operating service.")
+d("EU-010", "in progress", "progress report by the announcing body",
+  "The Commission's April 2026 progress release says €1 billion in Apply AI funding calls is earmarked; calls seen include Horizon Europe digital calls of €221.8 million and €85.5 million (January 2026) and Digital Europe calls of €63.2 million (April 2026). No grant awards were read, and one pilot call (€9 million, 19 proposals) reports results for February 2027.",
+  MILESTONES, "2026-04-09",
+  more=["https://digital-strategy.ec.europa.eu/en/news/eu-invests-over-eu307-million-artificial-intelligence-and-related-technologies",
+        "https://digital-strategy.ec.europa.eu/en/news/commission-makes-eu632-million-available-support-ai-innovation-health-and-online-safety",
+        "https://digital-strategy.ec.europa.eu/en/policies/european-ai-research"],
+  notes="Earmarked calls are not awards, so no amount is recorded. The frontier AI grand challenge selected its leading project in June 2026 according to the Commission's research page. The call amounts overlap with other EU rows and are not summed.")
+d("EU-011", "in progress", "progress report by the announcing body",
+  "The 2026-2027 Horizon Europe work programme sets up an AI in Science call of about €90 million, and a RAISE pilot call closed on 21 April 2026; no award results were found, and the €600 million figure for compute is not matched to a budget line.",
+  HADEA_RAISE, "2026-04-21",
+  more=["https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2026-2027/wp-1-general-introduction_horizon-2026-2027_en.pdf",
+        "https://research-and-innovation.ec.europa.eu/document/download/c1afd7d0-ff65-4f84-be48-b0e0949596c5_en?filename=COM_2025_724_1_EN_ACT_part1_v8.pdf"],
+  notes="Sources give the AI in Science call as €90 million (Commission news item, January 2026) and a RAISE package of €100 million (work programme annex); the work programme also states at least €867 million for AI in science elsewhere in the programme. These are not reconciled with the €600 million.")
+d("EU-012", "in progress", "progress report by the announcing body",
+  "The Commission launched the RAISE pilot on 3 November 2025 with €107 million under Horizon Europe; the first pilot calls closed on 21 April 2026 and no award results were found.",
+  "https://digital-strategy.ec.europa.eu/en/news/commission-launches-resource-ai-science-europe", "2025-11-03",
+  more=[HADEA_RAISE, "https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2026-2027/wp-14-horizontal-activities_horizon-2026-2027_en.pdf"],
+  notes="The launch page mentions no calls or awards. Topic budgets seen in the work programme are €15.0 million and €12.8 million (networks of excellence) and €17 million (Science for AI pilot); these are call budgets, not awards.")

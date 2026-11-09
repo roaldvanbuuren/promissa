@@ -11,6 +11,172 @@
     "withdrawn",
     "re-announced"
   ],
+  "rollup_rule": "Evidence amounts are attributed to the nearest counted ancestor via part_of. If a row and its own ancestor both carry an amount, only the shallower is used. Siblings in different branches are added. Re-announced rows carry no amount. Nothing is capped or altered; flags mark where evidenced exceeds promised.",
+  "rollup": [
+    {
+      "commitment_id": "DE-001",
+      "jurisdiction": "Germany",
+      "promised_amount": 1600000000,
+      "currency": "EUR",
+      "evidenced_amount": 910500000,
+      "contributions": [
+        {
+          "id": "DE-001",
+          "amount": 910500000,
+          "via": "self",
+          "amount_eur": 910500000
+        }
+      ],
+      "dropped_overlap": [],
+      "flags": [],
+      "promised_amount_eur": 1600000000,
+      "evidenced_amount_eur": 910500000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2023-08-23"
+    },
+    {
+      "commitment_id": "EU-003",
+      "jurisdiction": "European Union",
+      "promised_amount": 1500000000,
+      "currency": "EUR",
+      "evidenced_amount": 319760000,
+      "contributions": [
+        {
+          "id": "EU-003",
+          "amount": 319760000,
+          "via": "self",
+          "amount_eur": 319760000
+        }
+      ],
+      "dropped_overlap": [],
+      "flags": [],
+      "promised_amount_eur": 1500000000,
+      "evidenced_amount_eur": 319760000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2024-12-10"
+    },
+    {
+      "commitment_id": "EU-013",
+      "jurisdiction": "European Union",
+      "promised_amount": 354800000,
+      "currency": "EUR",
+      "evidenced_amount": 354800000,
+      "contributions": [
+        {
+          "id": "EU-013",
+          "amount": 354800000,
+          "via": "self",
+          "amount_eur": 354800000
+        }
+      ],
+      "dropped_overlap": [],
+      "flags": [],
+      "promised_amount_eur": 354800000,
+      "evidenced_amount_eur": 354800000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2024-09-09"
+    },
+    {
+      "commitment_id": "FR-001",
+      "jurisdiction": "France",
+      "promised_amount": 500000000,
+      "currency": "EUR",
+      "evidenced_amount": 360000000,
+      "contributions": [
+        {
+          "id": "FR-001",
+          "amount": 360000000,
+          "via": "self",
+          "amount_eur": 360000000
+        }
+      ],
+      "dropped_overlap": [],
+      "flags": [],
+      "promised_amount_eur": 500000000,
+      "evidenced_amount_eur": 360000000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2023-06-16"
+    },
+    {
+      "commitment_id": "IT-001",
+      "jurisdiction": "Italy",
+      "promised_amount": 1000000000,
+      "currency": "EUR",
+      "evidenced_amount": 300000000,
+      "contributions": [
+        {
+          "id": "IT-001",
+          "amount": 300000000,
+          "via": "self",
+          "amount_eur": 300000000
+        }
+      ],
+      "dropped_overlap": [],
+      "flags": [],
+      "promised_amount_eur": 1000000000,
+      "evidenced_amount_eur": 300000000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2024-04-08"
+    },
+    {
+      "commitment_id": "UK-001",
+      "jurisdiction": "United Kingdom",
+      "promised_amount": 900000000,
+      "currency": "GBP",
+      "evidenced_amount": 975000000,
+      "contributions": [
+        {
+          "id": "UK-003",
+          "amount": 750000000,
+          "via": "descendant",
+          "amount_eur": 859667824
+        },
+        {
+          "id": "UK-005",
+          "amount": 225000000,
+          "via": "descendant",
+          "amount_eur": 257900347
+        }
+      ],
+      "dropped_overlap": [],
+      "flags": [
+        "evidenced amount exceeds the promised amount (different bases; see the contributing rows)"
+      ],
+      "promised_amount_eur": 1031601389,
+      "evidenced_amount_eur": 1117568171,
+      "fx_rate": 0.87243,
+      "fx_rate_date": "2023-03-15"
+    },
+    {
+      "commitment_id": "UK-013",
+      "jurisdiction": "United Kingdom",
+      "promised_amount": 500000000,
+      "currency": "GBP",
+      "evidenced_amount": 8000000,
+      "contributions": [
+        {
+          "id": "UK-013",
+          "amount": 8000000,
+          "via": "self",
+          "amount_eur": 9438414
+        }
+      ],
+      "dropped_overlap": [],
+      "flags": [],
+      "promised_amount_eur": 589900897,
+      "evidenced_amount_eur": 9438414,
+      "fx_rate": 0.8476,
+      "fx_rate_date": "2025-06-11"
+    }
+  ],
+  "outside_totals": [
+    {
+      "id": "FR-003",
+      "amount": 40000000,
+      "currency": "EUR",
+      "amount_eur": 40000000
+    }
+  ],
   "rows": [
     {
       "id": "UK-001",
@@ -28,7 +194,11 @@
         "https://www.gov.uk/government/publications/uk-compute-roadmap/uk-compute-roadmap"
       ],
       "see": null,
-      "notes": "Components are assessed in UK-003, UK-004 and UK-005. No single amount is recorded because the component figures in the sources overlap with the roughly £900 million."
+      "notes": "Components are assessed in UK-003, UK-004 and UK-005. No single amount is recorded because the component figures in the sources overlap with the roughly £900 million.",
+      "amount_evidenced_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null,
+      "fx_basis_commitment": null
     },
     {
       "id": "UK-003",
@@ -45,7 +215,11 @@
         "https://www.gov.uk/government/publications/uk-compute-roadmap/uk-compute-roadmap"
       ],
       "see": null,
-      "notes": "Evidence for the Edinburgh system is held here once; UK-012 is its re-announcement. The Compute Roadmap says the system is expected online in early 2027, which is a plan, not delivery."
+      "notes": "Evidence for the Edinburgh system is held here once; UK-012 is its re-announcement. The Compute Roadmap says the system is expected online in early 2027, which is a plan, not delivery.",
+      "amount_evidenced_eur": 859667824,
+      "fx_rate": 0.87243,
+      "fx_rate_date": "2023-03-15",
+      "fx_basis_commitment": "UK-001"
     },
     {
       "id": "UK-004",
@@ -62,7 +236,11 @@
         "https://www.gov.uk/government/publications/ai-opportunities-action-plan-one-year-on/ai-opportunities-action-plan-one-year-on"
       ],
       "see": null,
-      "notes": "The £300 million total is not evidenced. The £225 million for Isambard-AI is recorded under UK-005. Accounts of how this £300 million relates to the £900 million in UK-001 differ (see gaps.md)."
+      "notes": "The £300 million total is not evidenced. The £225 million for Isambard-AI is recorded under UK-005. Accounts of how this £300 million relates to the £900 million in UK-001 differ (see gaps.md).",
+      "amount_evidenced_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null,
+      "fx_basis_commitment": null
     },
     {
       "id": "UK-005",
@@ -79,7 +257,11 @@
         "https://www.bristol.ac.uk/news/2025/november/spin-out-supercomputer.html"
       ],
       "see": null,
-      "notes": null
+      "notes": null,
+      "amount_evidenced_eur": 257900347,
+      "fx_rate": 0.87243,
+      "fx_rate_date": "2023-03-15",
+      "fx_basis_commitment": "UK-001"
     },
     {
       "id": "UK-008",
@@ -94,7 +276,11 @@
       "date_checked": "2026-11-09",
       "more_urls": [],
       "see": null,
-      "notes": null
+      "notes": null,
+      "amount_evidenced_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null,
+      "fx_basis_commitment": null
     },
     {
       "id": "UK-009",
@@ -109,7 +295,11 @@
       "date_checked": "2026-11-09",
       "more_urls": [],
       "see": null,
-      "notes": "No amount is stated for this commitment."
+      "notes": "No amount is stated for this commitment.",
+      "amount_evidenced_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null,
+      "fx_basis_commitment": null
     },
     {
       "id": "UK-011",
@@ -126,7 +316,11 @@
         "https://www.gov.uk/government/publications/uk-compute-roadmap/uk-compute-roadmap"
       ],
       "see": null,
-      "notes": "The Compute Roadmap was first published in July 2025 and last updated on 23 April 2026."
+      "notes": "The Compute Roadmap was first published in July 2025 and last updated on 23 April 2026.",
+      "amount_evidenced_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null,
+      "fx_basis_commitment": null
     },
     {
       "id": "UK-012",
@@ -141,7 +335,11 @@
       "date_checked": "2026-11-09",
       "more_urls": [],
       "see": "UK-003",
-      "notes": null
+      "notes": null,
+      "amount_evidenced_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null,
+      "fx_basis_commitment": null
     },
     {
       "id": "UK-013",
@@ -158,7 +356,11 @@
         "https://www.gov.uk/government/publications/uk-compute-roadmap/uk-compute-roadmap"
       ],
       "see": null,
-      "notes": null
+      "notes": null,
+      "amount_evidenced_eur": 9438414,
+      "fx_rate": 0.8476,
+      "fx_rate_date": "2025-06-11",
+      "fx_basis_commitment": "UK-013"
     },
     {
       "id": "UK-016",
@@ -173,7 +375,11 @@
       "date_checked": "2026-11-09",
       "more_urls": [],
       "see": null,
-      "notes": null
+      "notes": null,
+      "amount_evidenced_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null,
+      "fx_basis_commitment": null
     },
     {
       "id": "UK-017",
@@ -188,7 +394,11 @@
       "date_checked": "2026-11-09",
       "more_urls": [],
       "see": null,
-      "notes": "Whether this allocation includes the additional £120 million in the commitment is not established by the answer, so no amount is recorded against that claim."
+      "notes": "Whether this allocation includes the additional £120 million in the commitment is not established by the answer, so no amount is recorded against that claim.",
+      "amount_evidenced_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null,
+      "fx_basis_commitment": null
     },
     {
       "id": "EU-003",
@@ -206,7 +416,11 @@
         "https://www.eurohpc-ju.europa.eu/eurohpc-ju-signs-contract-deploy-ai-supercomputer-hammerhai-2026-03-16_en"
       ],
       "see": null,
-      "notes": "The €1.5 billion headline is not evidenced in full. HammerHAI's system delivery was planned for the second quarter of 2026 and operation for the second half of 2026; no operating date was found."
+      "notes": "The €1.5 billion headline is not evidenced in full. HammerHAI's system delivery was planned for the second quarter of 2026 and operation for the second half of 2026; no operating date was found.",
+      "amount_evidenced_eur": 319760000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2024-12-10",
+      "fx_basis_commitment": "EU-003"
     },
     {
       "id": "EU-004",
@@ -223,7 +437,11 @@
         "https://www.eurohpc-ju.europa.eu/ai-factories_en"
       ],
       "see": null,
-      "notes": null
+      "notes": null,
+      "amount_evidenced_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null,
+      "fx_basis_commitment": null
     },
     {
       "id": "EU-005",
@@ -240,7 +458,32 @@
         "https://www.rijksoverheid.nl/documenten/2025/10/13/kamerbrief-honorering-eu-financiering-voor-de-ai-fabriek-in-groningen"
       ],
       "see": null,
-      "notes": "Which sites belong to this wave was not checked site by site."
+      "notes": "Which sites belong to this wave was not checked site by site.",
+      "amount_evidenced_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null,
+      "fx_basis_commitment": null
+    },
+    {
+      "id": "EU-006",
+      "status": "partly delivered",
+      "evidence_type": "progress report by the announcing body",
+      "summary": "EuroHPC selected 13 AI Factory Antennas on 13 October 2025 with about €55 million of EU funding, and the Commission's April 2026 progress release says the antennas are providing regional access; no contract or grant-agreement values were read.",
+      "amount_evidenced": null,
+      "currency": null,
+      "amount_evidenced_basis": null,
+      "evidence_url": "https://www.eurohpc-ju.europa.eu/eurohpc-ju-selects-ai-factory-antennas-broaden-ai-factories-initiative-2025-10-13_en",
+      "evidence_date": "2025-10-13",
+      "date_checked": "2026-11-09",
+      "more_urls": [
+        "https://digital-strategy.ec.europa.eu/en/news/ai-continent-action-plan-delivers-major-milestones"
+      ],
+      "see": null,
+      "notes": "The selection page describes the antennas as newly selected, with a memorandum of understanding with their linked AI Factories due by mid-2026. The statement that access is being provided is the Commission's own and was not confirmed against an operating service.",
+      "amount_evidenced_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null,
+      "fx_basis_commitment": null
     },
     {
       "id": "EU-009",
@@ -255,7 +498,78 @@
       "date_checked": "2026-11-09",
       "more_urls": [],
       "see": null,
-      "notes": null
+      "notes": null,
+      "amount_evidenced_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null,
+      "fx_basis_commitment": null
+    },
+    {
+      "id": "EU-010",
+      "status": "in progress",
+      "evidence_type": "progress report by the announcing body",
+      "summary": "The Commission's April 2026 progress release says €1 billion in Apply AI funding calls is earmarked; calls seen include Horizon Europe digital calls of €221.8 million and €85.5 million (January 2026) and Digital Europe calls of €63.2 million (April 2026). No grant awards were read, and one pilot call (€9 million, 19 proposals) reports results for February 2027.",
+      "amount_evidenced": null,
+      "currency": null,
+      "amount_evidenced_basis": null,
+      "evidence_url": "https://digital-strategy.ec.europa.eu/en/news/ai-continent-action-plan-delivers-major-milestones",
+      "evidence_date": "2026-04-09",
+      "date_checked": "2026-11-09",
+      "more_urls": [
+        "https://digital-strategy.ec.europa.eu/en/news/eu-invests-over-eu307-million-artificial-intelligence-and-related-technologies",
+        "https://digital-strategy.ec.europa.eu/en/news/commission-makes-eu632-million-available-support-ai-innovation-health-and-online-safety",
+        "https://digital-strategy.ec.europa.eu/en/policies/european-ai-research"
+      ],
+      "see": null,
+      "notes": "Earmarked calls are not awards, so no amount is recorded. The frontier AI grand challenge selected its leading project in June 2026 according to the Commission's research page. The call amounts overlap with other EU rows and are not summed.",
+      "amount_evidenced_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null,
+      "fx_basis_commitment": null
+    },
+    {
+      "id": "EU-011",
+      "status": "in progress",
+      "evidence_type": "progress report by the announcing body",
+      "summary": "The 2026-2027 Horizon Europe work programme sets up an AI in Science call of about €90 million, and a RAISE pilot call closed on 21 April 2026; no award results were found, and the €600 million figure for compute is not matched to a budget line.",
+      "amount_evidenced": null,
+      "currency": null,
+      "amount_evidenced_basis": null,
+      "evidence_url": "https://hadea.ec.europa.eu/calls-proposals/thematic-networks-excellence-ai-science_en",
+      "evidence_date": "2026-04-21",
+      "date_checked": "2026-11-09",
+      "more_urls": [
+        "https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2026-2027/wp-1-general-introduction_horizon-2026-2027_en.pdf",
+        "https://research-and-innovation.ec.europa.eu/document/download/c1afd7d0-ff65-4f84-be48-b0e0949596c5_en?filename=COM_2025_724_1_EN_ACT_part1_v8.pdf"
+      ],
+      "see": null,
+      "notes": "Sources give the AI in Science call as €90 million (Commission news item, January 2026) and a RAISE package of €100 million (work programme annex); the work programme also states at least €867 million for AI in science elsewhere in the programme. These are not reconciled with the €600 million.",
+      "amount_evidenced_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null,
+      "fx_basis_commitment": null
+    },
+    {
+      "id": "EU-012",
+      "status": "in progress",
+      "evidence_type": "progress report by the announcing body",
+      "summary": "The Commission launched the RAISE pilot on 3 November 2025 with €107 million under Horizon Europe; the first pilot calls closed on 21 April 2026 and no award results were found.",
+      "amount_evidenced": null,
+      "currency": null,
+      "amount_evidenced_basis": null,
+      "evidence_url": "https://digital-strategy.ec.europa.eu/en/news/commission-launches-resource-ai-science-europe",
+      "evidence_date": "2025-11-03",
+      "date_checked": "2026-11-09",
+      "more_urls": [
+        "https://hadea.ec.europa.eu/calls-proposals/thematic-networks-excellence-ai-science_en",
+        "https://ec.europa.eu/info/funding-tenders/opportunities/docs/2021-2027/horizon/wp-call/2026-2027/wp-14-horizontal-activities_horizon-2026-2027_en.pdf"
+      ],
+      "see": null,
+      "notes": "The launch page mentions no calls or awards. Topic budgets seen in the work programme are €15.0 million and €12.8 million (networks of excellence) and €17 million (Science for AI pilot); these are call budgets, not awards.",
+      "amount_evidenced_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null,
+      "fx_basis_commitment": null
     },
     {
       "id": "EU-013",
@@ -273,7 +587,11 @@
         "https://www-hpc.cea.fr/en/AliceRecoque.html"
       ],
       "see": null,
-      "notes": "This is a budget, not the contract price, which the release does not state."
+      "notes": "This is a budget, not the contract price, which the release does not state.",
+      "amount_evidenced_eur": 354800000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2024-09-09",
+      "fx_basis_commitment": "EU-013"
     },
     {
       "id": "FR-001",
@@ -290,7 +608,11 @@
         "https://www.enseignementsup-recherche.gouv.fr/fr/france-2030-l-ia-comme-un-accelerateur-et-un-differentiateur-d-innovation-96213"
       ],
       "see": null,
-      "notes": "The sources read do not say whether the other €140 million was awarded elsewhere or left unawarded. They also do not say whether the clusters are installed."
+      "notes": "The sources read do not say whether the other €140 million was awarded elsewhere or left unawarded. They also do not say whether the clusters are installed.",
+      "amount_evidenced_eur": 360000000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2023-06-16",
+      "fx_basis_commitment": "FR-001"
     },
     {
       "id": "FR-002",
@@ -305,7 +627,11 @@
       "date_checked": "2026-11-09",
       "more_urls": [],
       "see": null,
-      "notes": "The original call amount of €40 million is not matched to awards."
+      "notes": "The original call amount of €40 million is not matched to awards.",
+      "amount_evidenced_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null,
+      "fx_basis_commitment": null
     },
     {
       "id": "FR-003",
@@ -322,7 +648,11 @@
         "https://www.genci.fr/sites/default/files/brique/fichier/12-2025/VF%20GENCI-RA2024_EN_BD5%20dble.pdf"
       ],
       "see": null,
-      "notes": null
+      "notes": null,
+      "amount_evidenced_eur": 40000000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2023-06-16",
+      "fx_basis_commitment": "FR-003"
     },
     {
       "id": "DE-001",
@@ -337,7 +667,11 @@
       "date_checked": "2026-11-09",
       "more_urls": [],
       "see": null,
-      "notes": "The sum is arithmetic on two stated figures. It is a budget, not spending."
+      "notes": "The sum is arithmetic on two stated figures. It is a budget, not spending.",
+      "amount_evidenced_eur": 910500000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2023-08-23",
+      "fx_basis_commitment": "DE-001"
     },
     {
       "id": "DE-003",
@@ -352,7 +686,11 @@
       "date_checked": "2026-11-09",
       "more_urls": [],
       "see": null,
-      "notes": "Self-reported by the ministry responsible for the strategy. No independent check found."
+      "notes": "Self-reported by the ministry responsible for the strategy. No independent check found.",
+      "amount_evidenced_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null,
+      "fx_basis_commitment": null
     },
     {
       "id": "DE-004",
@@ -369,7 +707,11 @@
         "https://www.eurohpc-ju.europa.eu/eurohpc-joint-undertaking-launches-ai-gigafactories-call-2026-07-30_en"
       ],
       "see": null,
-      "notes": null
+      "notes": null,
+      "amount_evidenced_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null,
+      "fx_basis_commitment": null
     },
     {
       "id": "DE-005",
@@ -384,7 +726,11 @@
       "date_checked": "2026-11-09",
       "more_urls": [],
       "see": null,
-      "notes": "The release restates the commitment. No amount is recorded as evidenced because restating the figure is not evidence of delivery. Not searched: the federal budget plan and Bundestag documents."
+      "notes": "The release restates the commitment. No amount is recorded as evidenced because restating the figure is not evidence of delivery. Not searched: the federal budget plan and Bundestag documents.",
+      "amount_evidenced_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null,
+      "fx_basis_commitment": null
     },
     {
       "id": "IT-001",
@@ -399,7 +745,11 @@
       "date_checked": "2026-11-09",
       "more_urls": [],
       "see": null,
-      "notes": "A Council of Ministers communiqué seen only as a search snippet gives €313 million in its annexes; the page could not be loaded to confirm."
+      "notes": "A Council of Ministers communiqué seen only as a search snippet gives €313 million in its annexes; the page could not be loaded to confirm.",
+      "amount_evidenced_eur": 300000000,
+      "fx_rate": 1.0,
+      "fx_rate_date": "2024-04-08",
+      "fx_basis_commitment": "IT-001"
     },
     {
       "id": "IT-003",
@@ -414,7 +764,11 @@
       "date_checked": "2026-11-09",
       "more_urls": [],
       "see": "IT-001",
-      "notes": null
+      "notes": null,
+      "amount_evidenced_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null,
+      "fx_basis_commitment": null
     },
     {
       "id": "NL-001",
@@ -431,7 +785,11 @@
         "https://ventures.tno.nl/portfolio/gpt-nl/"
       ],
       "see": null,
-      "notes": "The page does not state a budget, so no amount is recorded. The page does not state the year of the autumn rollout (context points to 2026)."
+      "notes": "The page does not state a budget, so no amount is recorded. The page does not state the year of the autumn rollout (context points to 2026).",
+      "amount_evidenced_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null,
+      "fx_basis_commitment": null
     },
     {
       "id": "NL-004",
@@ -449,7 +807,11 @@
         "https://www.surf.nl/en/news/netherlands-gets-ai-factory-european-funding-awarded"
       ],
       "see": null,
-      "notes": "The letter gives national and regional money together (about €130.9 million), so the Cabinet's own €70 million is not separated and no amount is recorded."
+      "notes": "The letter gives national and regional money together (about €130.9 million), so the Cabinet's own €70 million is not separated and no amount is recorded.",
+      "amount_evidenced_eur": null,
+      "fx_rate": null,
+      "fx_rate_date": null,
+      "fx_basis_commitment": null
     }
   ]
 }
